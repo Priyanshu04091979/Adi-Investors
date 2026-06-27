@@ -28,8 +28,9 @@ export function useChat() {
     setError(null)
 
     try {
-      // Use the production URL if defined in Netlify (.env), otherwise fallback to local network testing
-      const API_URL = import.meta.env.VITE_API_URL || `http://${window.location.hostname}:8001`;
+      // Smart routing: Use VITE_API_URL if set. If running on localhost, use local backend. Otherwise, default to Render cloud.
+      const isLocal = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' || window.location.hostname.startsWith('192.168.');
+      const API_URL = import.meta.env.VITE_API_URL || (isLocal ? `http://${window.location.hostname}:8001` : 'https://sbs-wealth-chatbot.onrender.com');
       
       const response = await fetch(`${API_URL}/api/chat`, {
         method: 'POST',
