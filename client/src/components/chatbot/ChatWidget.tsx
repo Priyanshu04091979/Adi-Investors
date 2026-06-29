@@ -89,11 +89,14 @@ export default function ChatWidget({ onClose }: ChatWidgetProps) {
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 20, scale: 0.95 }}
-      animate={{ opacity: 1, y: 0, scale: 1 }}
-      exit={{ opacity: 0, y: 20, scale: 0.95 }}
-      transition={{ duration: 0.2 }}
-      style={isMobile ? { width: 'calc(100vw - 2rem)', height: 'min(550px, calc(100vh - 8rem))' } : { width: size.width, height: size.height }}
+      initial={{ opacity: 0, scale: 0.1, y: 100, x: 50 }}
+      animate={{ opacity: 1, scale: 1, y: 0, x: 0 }}
+      exit={{ opacity: 0, scale: 0.1, y: 100, x: 50 }}
+      transition={{ type: "spring", stiffness: 360, damping: 26 }}
+      style={{
+        transformOrigin: "bottom right",
+        ...(isMobile ? { width: 'calc(100vw - 2rem)', height: 'min(550px, calc(100vh - 8rem))' } : { width: size.width, height: size.height })
+      }}
       className="bg-slate-50 shadow-[0_8px_30px_rgb(0,0,0,0.16)] border border-slate-200/60 flex flex-col overflow-hidden font-sans rounded-3xl relative"
     >
       {/* Header */}
