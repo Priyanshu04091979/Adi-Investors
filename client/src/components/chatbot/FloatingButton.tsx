@@ -48,7 +48,23 @@ export default function FloatingButton({ isOpen, toggle }: FloatingButtonProps) 
           animate={{ rotate: isOpen ? 90 : 0, scale: isOpen ? 0.85 : 1 }}
           transition={{ type: "spring", stiffness: 260, damping: 15 }}
         >
-          {isOpen ? <X size={28} /> : <MessageCircle size={28} />}
+          {isOpen ? (
+            <X size={28} />
+          ) : (
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ display: 'block' }}>
+              {/* Custom Chat Bubble with rounded corners */}
+              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+              {/* Golden line chart drawing itself inside the bubble */}
+              <motion.path 
+                d="M7 13l3-3 4 4 4-4" 
+                stroke="#eab308" 
+                strokeWidth="2.5" 
+                initial={{ pathLength: 0 }}
+                animate={{ pathLength: 1 }}
+                transition={{ duration: 0.8, delay: 0.6, ease: "easeOut" }}
+              />
+            </svg>
+          )}
         </motion.div>
       </motion.button>
     </div>
