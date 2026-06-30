@@ -21,7 +21,7 @@ export default function FloatingButton({ isOpen, toggle }: FloatingButtonProps) 
             repeat: Infinity,
             ease: "easeInOut"
           }}
-          className="absolute inset-0 rounded-full bg-gold-400/40 z-0 pointer-events-none"
+          className="absolute inset-0 rounded-full bg-[#BE5B50]/30 z-0 pointer-events-none"
         />
       )}
 
@@ -40,7 +40,7 @@ export default function FloatingButton({ isOpen, toggle }: FloatingButtonProps) 
           }
         } : {}}
         onClick={toggle}
-        className="relative z-10 bg-gold-400 text-green-950 rounded-full p-4 shadow-[0_8px_30px_rgba(202,138,4,0.3)] flex items-center justify-center hover:bg-gold-500 transition-colors"
+        className="relative z-10 bg-gradient-to-br from-[#8A2D3B] to-[#641B2E] text-[#FBDB93] rounded-full p-4 shadow-[0_8px_30px_rgba(138,45,59,0.35)] flex items-center justify-center hover:shadow-[0_8px_30px_rgba(138,45,59,0.5)] transition-all"
         aria-label="Toggle chat"
       >
         <motion.div
@@ -57,7 +57,7 @@ export default function FloatingButton({ isOpen, toggle }: FloatingButtonProps) 
               {/* Golden line chart drawing itself inside the bubble */}
               <motion.path 
                 d="M7 13l3-3 4 4 4-4" 
-                stroke="#eab308" 
+                stroke="#FBDB93" 
                 strokeWidth="2.5" 
                 initial={{ pathLength: 0 }}
                 animate={{ pathLength: 1 }}

@@ -22,8 +22,8 @@ export default function ChatMessage({ role, content, timestamp }: ChatMessagePro
       className={`flex ${isUser ? 'justify-end' : 'justify-start'} mb-5 group`}
     >
       {!isUser && (
-        <div className="w-9 h-9 rounded-full bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center shrink-0 mr-3 mt-1 shadow-sm border border-slate-200">
-           <Bot size={18} className="text-white" />
+        <div className="w-9 h-9 rounded-full bg-gradient-to-br from-[#BE5B50] to-[#8A2D3B] flex items-center justify-center shrink-0 mr-3 mt-1 shadow-sm border border-[#FBDB93]/35">
+           <Bot size={18} className="text-[#FBDB93]" />
         </div>
       )}
       
@@ -31,7 +31,7 @@ export default function ChatMessage({ role, content, timestamp }: ChatMessagePro
         <div
           className={`px-5 py-3.5 rounded-3xl text-[15px] leading-relaxed shadow-sm ${
             isUser
-               ? 'bg-blue-600 text-white rounded-tr-sm'
+               ? 'bg-[#8A2D3B] text-white rounded-tr-sm'
                : 'bg-white border border-slate-200/60 text-slate-700 rounded-tl-sm'
           }`}
         >
@@ -45,7 +45,7 @@ export default function ChatMessage({ role, content, timestamp }: ChatMessagePro
                     return (
                       <Link 
                         to={href} 
-                        className={`${isUser ? 'text-blue-100' : 'text-blue-600'} hover:underline font-medium`} 
+                        className={`${isUser ? 'text-[#FBDB93]' : 'text-[#8A2D3B]'} hover:underline font-medium`} 
                         {...props} 
                       />
                     )
@@ -55,7 +55,7 @@ export default function ChatMessage({ role, content, timestamp }: ChatMessagePro
                       href={href} 
                       target="_blank" 
                       rel="noopener noreferrer" 
-                      className={`${isUser ? 'text-blue-100' : 'text-blue-600'} hover:underline font-medium`} 
+                      className={`${isUser ? 'text-[#FBDB93]' : 'text-[#8A2D3B]'} hover:underline font-medium`} 
                       {...props} 
                     />
                   )
@@ -89,7 +89,7 @@ export default function ChatMessage({ role, content, timestamp }: ChatMessagePro
         {timestamp && (
           <div className={`flex items-center gap-1.5 mt-1.5 text-[10px] font-medium text-slate-400 ${isUser ? 'mr-1' : 'ml-1'}`}>
             <span>{timestamp}</span>
-            {isUser && <CheckCheck size={14} className="text-blue-500" />}
+            {isUser && <CheckCheck size={14} className="text-[#BE5B50]" />}
           </div>
         )}
       </div>

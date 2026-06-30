@@ -102,28 +102,28 @@ export default function ChatWidget({ onClose }: ChatWidgetProps) {
       className="bg-slate-50 shadow-[0_8px_30px_rgb(0,0,0,0.16)] border border-slate-200/60 flex flex-col overflow-hidden font-sans rounded-3xl relative"
     >
       {/* Header */}
-      <div className="bg-[#0f172a] text-white p-5 pb-6 flex items-start justify-between relative shrink-0 rounded-t-[1.3rem]">
+      <div className="bg-gradient-to-br from-[#8A2D3B] to-[#641B2E] text-white p-5 pb-6 flex items-start justify-between relative shrink-0 rounded-t-[1.3rem]">
         {/* Background Graphic */}
-        <div className="absolute right-0 bottom-0 opacity-40 pointer-events-none">
+        <div className="absolute right-0 bottom-0 opacity-30 pointer-events-none">
           <svg width="180" height="60" viewBox="0 0 180 60" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M10 50 L40 40 L70 45 L100 20 L130 35 L160 5 L175 0" stroke="#3b82f6" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
-            <path d="M165 5 L175 0 L175 10" stroke="#3b82f6" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
-            <rect x="35" y="45" width="10" height="20" fill="#3b82f6" />
-            <rect x="65" y="48" width="10" height="17" fill="#3b82f6" />
-            <rect x="95" y="25" width="10" height="40" fill="#3b82f6" />
-            <rect x="125" y="40" width="10" height="25" fill="#3b82f6" />
-            <rect x="155" y="10" width="10" height="55" fill="#3b82f6" />
+            <path d="M10 50 L40 40 L70 45 L100 20 L130 35 L160 5 L175 0" stroke="#FBDB93" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
+            <path d="M165 5 L175 0 L175 10" stroke="#FBDB93" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
+            <rect x="35" y="45" width="10" height="20" fill="#FBDB93" opacity="0.15" />
+            <rect x="65" y="48" width="10" height="17" fill="#FBDB93" opacity="0.15" />
+            <rect x="95" y="25" width="10" height="40" fill="#FBDB93" opacity="0.15" />
+            <rect x="125" y="40" width="10" height="25" fill="#FBDB93" opacity="0.15" />
+            <rect x="155" y="10" width="10" height="55" fill="#FBDB93" opacity="0.15" />
           </svg>
         </div>
 
         <div className="flex gap-4 items-center z-10">
           {/* Avatar */}
-          <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-full flex items-center justify-center border-2 border-slate-700 shadow-inner">
-             <Bot size={24} className="text-white" />
+          <div className="w-12 h-12 bg-gradient-to-br from-[#BE5B50] to-[#8A2D3B] rounded-full flex items-center justify-center border-2 border-[#FBDB93]/35 shadow-inner">
+             <Bot size={24} className="text-[#FBDB93]" />
           </div>
           <div>
             <h2 className="font-bold text-xl flex items-center gap-1.5 tracking-tight">
-              FinAI <span className="text-blue-400">✨</span>
+              FinAI <span className="text-[#FBDB93]">✨</span>
             </h2>
             <div className="text-[11px] !text-white mt-0.5 font-medium tracking-wide">
               Powered by SBS Financial
@@ -167,9 +167,9 @@ export default function ChatWidget({ onClose }: ChatWidgetProps) {
                     key={i}
                     onClick={() => sendMessage(action.label)}
                     disabled={isLoading}
-                    className="flex items-center gap-2.5 bg-white border border-slate-200 hover:border-blue-300 hover:bg-blue-50/50 hover:shadow-sm transition-all rounded-xl p-2.5 text-left group disabled:opacity-50"
+                    className="flex items-center gap-2.5 bg-white border border-slate-200 hover:border-[#BE5B50] hover:bg-[#FBDB93]/10 hover:shadow-sm transition-all rounded-xl p-2.5 text-left group disabled:opacity-50"
                   >
-                    <div className="w-7 h-7 rounded-lg bg-slate-50 text-blue-600 flex items-center justify-center shrink-0 group-hover:bg-blue-100 group-hover:text-blue-700 transition-colors">
+                    <div className="w-7 h-7 rounded-lg bg-slate-50 text-[#8A2D3B] flex items-center justify-center shrink-0 group-hover:bg-[#8A2D3B] group-hover:text-[#FBDB93] transition-colors">
                       <action.icon size={14} className="stroke-[2.5]" />
                     </div>
                     <span className="text-[11px] font-semibold text-slate-600 leading-tight group-hover:text-slate-800 transition-colors">
@@ -184,13 +184,13 @@ export default function ChatWidget({ onClose }: ChatWidgetProps) {
         
         {isLoading && (
           <div className="flex justify-start mb-6">
-            <div className="w-9 h-9 rounded-full bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center shrink-0 mr-3 shadow-sm border border-slate-200">
-               <Bot size={18} className="text-white" />
+            <div className="w-9 h-9 rounded-full bg-gradient-to-br from-[#BE5B50] to-[#8A2D3B] flex items-center justify-center shrink-0 mr-3 shadow-sm border border-[#FBDB93]/35">
+               <Bot size={18} className="text-[#FBDB93]" />
             </div>
             <div className="bg-white border border-slate-100 px-5 py-4 rounded-3xl rounded-tl-sm shadow-sm flex gap-1.5 items-center mt-0.5">
-              <div className="w-1.5 h-1.5 bg-slate-400 rounded-full animate-bounce [animation-delay:-0.3s]"></div>
-              <div className="w-1.5 h-1.5 bg-slate-400 rounded-full animate-bounce [animation-delay:-0.15s]"></div>
-              <div className="w-1.5 h-1.5 bg-slate-400 rounded-full animate-bounce"></div>
+              <div className="w-1.5 h-1.5 bg-[#8A2D3B] rounded-full animate-bounce [animation-delay:-0.3s]"></div>
+              <div className="w-1.5 h-1.5 bg-[#8A2D3B] rounded-full animate-bounce [animation-delay:-0.15s]"></div>
+              <div className="w-1.5 h-1.5 bg-[#8A2D3B] rounded-full animate-bounce"></div>
             </div>
           </div>
         )}

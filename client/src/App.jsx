@@ -123,18 +123,18 @@ function App() {
                     },
                     default: { duration: 0.3 }
                   }}
-                  className="absolute bottom-[4px] right-0 bg-[#0f172a] text-white p-4 rounded-2xl shadow-[0_10px_25px_rgba(0,0,0,0.2)] border border-slate-700 w-64 flex flex-col items-start gap-1 text-sm font-sans"
+                  className="absolute bottom-[4px] right-0 bg-[#641B2E] text-white p-4 rounded-2xl shadow-[0_10px_25px_rgba(0,0,0,0.2)] border border-[#8A2D3B] w-64 flex flex-col items-start gap-1 text-sm font-sans"
                   style={{ transformOrigin: "bottom right" }}
                 >
                   {/* Close button */}
                   <button 
                     onClick={() => setShowTooltip(false)}
-                    className="absolute top-2.5 right-2.5 text-slate-400 hover:text-white transition-colors"
+                    className="absolute top-2.5 right-2.5 text-[#FBDB93]/70 hover:text-[#FBDB93] transition-colors"
                   >
                     <X size={14} />
                   </button>
 
-                  <div className="font-semibold text-gold-400 flex items-center gap-1.5">
+                  <div className="font-semibold text-[#FBDB93] flex items-center gap-1.5">
                     <span>Ask FinAI ✨</span>
                   </div>
                   <p className="text-slate-200 text-xs pr-2 leading-normal">
@@ -142,7 +142,7 @@ function App() {
                   </p>
                   
                   {/* Tooltip Arrow pointing down */}
-                  <div className="absolute right-6 -bottom-1.5 w-3 h-3 bg-[#0f172a] border-r border-b border-slate-700 rotate-45" />
+                  <div className="absolute right-6 -bottom-1.5 w-3 h-3 bg-[#641B2E] border-r border-b border-[#8A2D3B] rotate-45" />
                 </motion.div>
               )}
             </AnimatePresence>
