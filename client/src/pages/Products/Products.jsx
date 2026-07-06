@@ -116,7 +116,7 @@ function Products() {
           </h1>
 
           <p className="text-gray-300 text-base md:text-xl leading-relaxed max-w-3xl mx-auto mb-16">
-            Explore AAadi Investments' curated selection of high-performance financial products, tailored to maximize your growth and protect your wealth.
+            Explore Aadi Investments' curated selection of high-performance financial products, tailored to maximize your growth and protect your wealth.
           </p>
 
         </motion.div>

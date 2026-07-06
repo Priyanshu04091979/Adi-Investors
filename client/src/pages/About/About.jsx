@@ -110,7 +110,7 @@ function About() {
             Trusted Investment Advisors
           </div>
           <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold text-white tracking-tight leading-tight max-w-4xl mx-auto mb-6">
-            About <span className="text-gold-400 font-extrabold relative after:content-[''] after:absolute after:bottom-1 after:left-0 after:w-full after:h-1 after:bg-gold-400/40">AAadi Investments</span>
+            About <span className="text-gold-400 font-extrabold relative after:content-[''] after:absolute after:bottom-1 after:left-0 after:w-full after:h-1 after:bg-gold-400/40">Aadi Investments</span>
           </h1>
           <p className="text-gray-300 text-base md:text-xl leading-relaxed max-w-2xl mx-auto mb-10">
             Empowering financial futures through expert investment guidance and innovative solutions
@@ -161,9 +161,9 @@ function About() {
             </div>
                         <div className="md:w-2/3">
               <h3 className="text-2xl font-bold text-green-950 mb-2">Founder</h3>
-              <p className="text-gold-600 font-semibold mb-6 uppercase tracking-wider text-sm">Founder, AAadi Investments</p>
+              <p className="text-gold-600 font-semibold mb-6 uppercase tracking-wider text-sm">Founder, Aadi Investments</p>
               <p className="text-ink-muted text-body-lg mb-6 leading-relaxed">
-                At AAadi Investments, we believe that financial security begins with trust. Every interaction, every recommendation, and every solution is guided by values that put our clients first.
+                At Aadi Investments, we believe that financial security begins with trust. Every interaction, every recommendation, and every solution is guided by values that put our clients first.
               </p>
               <p className="text-ink-muted text-body-lg mb-6 leading-relaxed">
                 We promise to keep things simple, honest, and transparent. Instead of overwhelming you with complex terms or one-size-fits-all solutions, we take the time to understand your needs and recommend what truly works for you.
@@ -252,9 +252,9 @@ function About() {
       <section className="section-pad bg-green-100/50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-16">
-            <h2 className="section-title section-title-accent inline-block">Why Choose AAadi Investments?</h2>
+            <h2 className="section-title section-title-accent inline-block">Why Choose Aadi Investments?</h2>
             <p className="text-ink-muted text-body-lg mt-4">
-              Choosing AAadi Investments means choosing a partner committed to your financial growth and empowerment. We combine personalized strategies, transparency, and proven expertise to help clients achieve their financial goals.
+              Choosing Aadi Investments means choosing a partner committed to your financial growth and empowerment. We combine personalized strategies, transparency, and proven expertise to help clients achieve their financial goals.
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -325,7 +325,7 @@ function About() {
         <div className="max-w-3xl mx-auto relative z-10">
           <h2 className="text-3xl md:text-4xl font-bold mb-6 text-green-950 tracking-tight">Connect With Us</h2>
           <p className="text-ink-muted mb-10 max-w-2xl mx-auto leading-relaxed text-base md:text-lg">
-            Your financial future deserves expert guidance and strategic planning. Connect with AAadi Investments today and take the first step toward financial empowerment, long-term growth, and wealth creation.
+            Your financial future deserves expert guidance and strategic planning. Connect with Aadi Investments today and take the first step toward financial empowerment, long-term growth, and wealth creation.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link to={ROUTES.CONTACT} className="btn-primary w-full sm:w-auto px-8 py-4 inline-flex items-center justify-center gap-2 group shadow-lg shadow-gold-400/15 text-lg">

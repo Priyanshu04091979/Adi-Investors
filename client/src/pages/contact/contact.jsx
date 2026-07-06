@@ -192,7 +192,7 @@ function Contact() {
       await fetch(APPS_SCRIPT_URL, {
         method: 'POST',
         mode: 'no-cors',
-        headers: { 'Content-Type': 'application/json' },
+        headers: { 'Content-Type': 'text/plain;charset=utf-8' },
         body: JSON.stringify({
           ...formData,
           timestamp: new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' }),
