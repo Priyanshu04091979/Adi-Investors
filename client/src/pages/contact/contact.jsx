@@ -1,16 +1,20 @@
-﻿import React, { useState } from 'react';
+import React, { useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import * as Icons from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { SERVICES } from '../../constants/services';
 
+// ─── PASTE YOUR APPS SCRIPT WEB APP URL HERE AFTER DEPLOYING ───────────────
+const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/YOUR_SCRIPT_ID/exec';
+// ────────────────────────────────────────────────────────────────────────────
+
 function FAQItem({ question, answer }) {
   const [isOpen, setIsOpen] = useState(false);
   return (
     <div className="bg-white rounded-xl border border-gray-100 shadow-sm overflow-hidden transition-all duration-350">
-      <button 
+      <button
         type="button"
-        onClick={() => setIsOpen(!isOpen)} 
+        onClick={() => setIsOpen(!isOpen)}
         className="w-full px-6 py-4 flex justify-between items-center text-left hover:bg-slate-50 transition-colors"
       >
         <span className="font-bold text-green-950 text-base md:text-lg">{question}</span>
@@ -18,7 +22,7 @@ function FAQItem({ question, answer }) {
       </button>
       <AnimatePresence initial={false}>
         {isOpen && (
-          <motion.div 
+          <motion.div
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: 'auto', opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
@@ -35,16 +39,145 @@ function FAQItem({ question, answer }) {
   );
 }
 
+// ── Send Animation Overlay ────────────────────────────────────────────────────
+function SendOverlay({ status }) {
+  return (
+    <AnimatePresence>
+      {status !== 'idle' && (
+        <motion.div
+          key="overlay"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          className="absolute inset-0 z-20 flex flex-col items-center justify-center bg-white/95 backdrop-blur-sm rounded-2xl"
+        >
+          {status === 'sending' && (
+            <motion.div
+              className="flex flex-col items-center gap-6"
+              initial={{ scale: 0.8, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              transition={{ duration: 0.4 }}
+            >
+              {/* Animated paper-plane */}
+              <div className="relative w-24 h-24">
+                <motion.div
+                  animate={{
+                    x: [0, 60, 120],
+                    y: [0, -30, -60],
+                    rotate: [0, -15, -30],
+                    opacity: [1, 1, 0],
+                  }}
+                  transition={{ duration: 1.5, ease: 'easeInOut', repeat: Infinity, repeatDelay: 0.5 }}
+                  className="absolute inset-0 flex items-center justify-center text-gold-500"
+                >
+                  <Icons.Send size={48} strokeWidth={1.5} />
+                </motion.div>
+                {/* Trail dots */}
+                {[0, 1, 2].map(i => (
+                  <motion.div
+                    key={i}
+                    className="absolute w-2 h-2 rounded-full bg-gold-400"
+                    style={{ left: `${20 + i * 20}px`, top: `${50 + i * 10}px` }}
+                    animate={{ opacity: [0, 0.8, 0], scale: [0, 1, 0] }}
+                    transition={{ duration: 1.5, delay: i * 0.15, repeat: Infinity, repeatDelay: 0.5 }}
+                  />
+                ))}
+              </div>
+              <div className="text-center">
+                <p className="text-green-950 font-bold text-xl mb-1">Sending your message…</p>
+                <p className="text-gray-400 text-sm">Please wait a moment</p>
+              </div>
+              {/* Pulsing dots */}
+              <div className="flex gap-2">
+                {[0, 1, 2].map(i => (
+                  <motion.div
+                    key={i}
+                    className="w-2.5 h-2.5 rounded-full bg-gold-400"
+                    animate={{ scale: [1, 1.5, 1], opacity: [0.5, 1, 0.5] }}
+                    transition={{ duration: 0.8, delay: i * 0.2, repeat: Infinity }}
+                  />
+                ))}
+              </div>
+            </motion.div>
+          )}
+
+          {status === 'success' && (
+            <motion.div
+              className="flex flex-col items-center gap-5 text-center px-8"
+              initial={{ scale: 0.7, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              transition={{ type: 'spring', stiffness: 200, damping: 15 }}
+            >
+              {/* Success checkmark circle */}
+              <motion.div
+                className="w-24 h-24 rounded-full bg-green-100 flex items-center justify-center border-4 border-green-500"
+                initial={{ scale: 0 }}
+                animate={{ scale: 1 }}
+                transition={{ type: 'spring', delay: 0.1 }}
+              >
+                <motion.div
+                  initial={{ pathLength: 0 }}
+                  animate={{ pathLength: 1 }}
+                >
+                  <Icons.Check size={48} className="text-green-600" strokeWidth={3} />
+                </motion.div>
+              </motion.div>
+              <div>
+                <h3 className="text-2xl font-bold text-green-950 mb-2">Message Sent! 🎉</h3>
+                <p className="text-gray-500 text-sm leading-relaxed max-w-xs">
+                  Thank you! We've received your message and will get back to you within 24 hours.
+                </p>
+              </div>
+              {/* Confetti particles */}
+              <div className="relative w-full h-8 overflow-hidden">
+                {['#f5c518','#22c55e','#3b82f6','#ef4444','#a855f7'].map((color, i) => (
+                  <motion.div
+                    key={i}
+                    className="absolute w-2 h-2 rounded-sm"
+                    style={{ backgroundColor: color, left: `${15 + i * 18}%`, top: 0 }}
+                    animate={{ y: [0, 40], rotate: [0, 360], opacity: [1, 0] }}
+                    transition={{ duration: 0.8, delay: i * 0.1 }}
+                  />
+                ))}
+              </div>
+            </motion.div>
+          )}
+
+          {status === 'error' && (
+            <motion.div
+              className="flex flex-col items-center gap-5 text-center px-8"
+              initial={{ scale: 0.7, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              transition={{ type: 'spring', stiffness: 200 }}
+            >
+              <motion.div
+                className="w-24 h-24 rounded-full bg-red-100 flex items-center justify-center border-4 border-red-400"
+                animate={{ rotate: [0, -5, 5, -5, 5, 0] }}
+                transition={{ duration: 0.5, delay: 0.1 }}
+              >
+                <Icons.AlertCircle size={48} className="text-red-500" strokeWidth={1.5} />
+              </motion.div>
+              <div>
+                <h3 className="text-2xl font-bold text-red-700 mb-2">Something went wrong</h3>
+                <p className="text-gray-500 text-sm leading-relaxed max-w-xs">
+                  Please try again or email us directly at<br />
+                  <a href="mailto:aadiinvestors10@gmail.com" className="text-gold-600 font-semibold">aadiinvestors10@gmail.com</a>
+                </p>
+              </div>
+            </motion.div>
+          )}
+        </motion.div>
+      )}
+    </AnimatePresence>
+  );
+}
+
 function Contact() {
   const location = useLocation();
-  
-  const [formData, setFormData] = useState({
-    fullName: '',
-    email: '',
-    phone: '',
-    subject: location.state?.subject || '',
-    message: ''
-  });
+
+  const emptyForm = { fullName: '', email: '', phone: '', subject: location.state?.subject || '', message: '' };
+  const [formData, setFormData] = useState(emptyForm);
+  const [submitStatus, setSubmitStatus] = useState('idle'); // idle | sending | success | error
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -52,55 +185,53 @@ function Contact() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
+    setSubmitStatus('sending');
+
     try {
-      const response = await fetch('http://localhost:5000/api/contact', {
+      // Send to Google Apps Script (no-cors because Apps Script returns opaque response)
+      await fetch(APPS_SCRIPT_URL, {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          ...formData,
+          timestamp: new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' }),
+        }),
       });
 
-      if (response.ok) {
-        alert('Thank you for your message. We have received it and will get back to you soon!');
-        setFormData({ fullName: '', email: '', phone: '', subject: '', message: '' });
-      } else {
-        alert('There was an issue sending your message. Please try again later.');
-      }
+      // Because mode=no-cors, we can't read the response — assume success if no throw
+      setSubmitStatus('success');
+      setTimeout(() => {
+        setSubmitStatus('idle');
+        setFormData(emptyForm);
+      }, 3500);
     } catch (error) {
-      console.error('Error submitting form:', error);
-      alert('Network error. Please ensure the server is running.');
+      console.error('Form submission error:', error);
+      setSubmitStatus('error');
+      setTimeout(() => setSubmitStatus('idle'), 4000);
     }
   };
 
   const containerVariants = {
     hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: { staggerChildren: 0.1 }
-    }
+    visible: { opacity: 1, transition: { staggerChildren: 0.1 } },
   };
 
   const itemVariants = {
     hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.5, ease: 'easeOut' }
-    }
+    visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: 'easeOut' } },
   };
+
+  const inputClass = "w-full md:w-2/3 px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-gold-400/50 focus:border-gold-400 transition-colors";
 
   return (
     <div className="bg-slate-50 min-h-screen">
       {/* Top Banner */}
       <section className="relative bg-gradient-to-br from-green-950 via-green-900 to-green-950 text-white py-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
-        {/* Decorative Circles */}
         <div className="absolute inset-0 opacity-10 pointer-events-none">
           <div className="absolute top-0 right-0 w-96 h-96 rounded-full bg-gold-400 blur-3xl transform translate-x-1/2 -translate-y-1/2"></div>
           <div className="absolute bottom-0 left-0 w-80 h-80 rounded-full bg-gold-400 blur-3xl transform -translate-x-1/3 translate-y-1/3"></div>
         </div>
-
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -121,7 +252,6 @@ function Contact() {
           {/* Left Column: Contact Information */}
           <div className="lg:w-1/3 bg-white p-8 md:p-12 border-r border-gray-100">
             <h2 className="text-3xl font-bold text-green-950 mb-8">Contact Information</h2>
-
             <motion.div
               variants={containerVariants}
               initial="hidden"
@@ -149,8 +279,7 @@ function Contact() {
                 </div>
                 <div>
                   <h3 className="font-bold text-green-950 mb-2">Phone</h3>
-                  <p className="text-ink-muted text-sm mb-1">+91 97730 96553</p>
-                  <p className="text-ink-muted text-sm">+91 97730 96553</p>
+                  <a href="tel:+919773096553" className="text-ink-muted text-sm hover:text-gold-600 transition-colors">+91 97730 96553</a>
                 </div>
               </motion.div>
 
@@ -161,7 +290,9 @@ function Contact() {
                 </div>
                 <div>
                   <h3 className="font-bold text-green-950 mb-2">Email</h3>
-                  <p className="text-ink-muted text-sm">aadiinvestors10@gmail.com</p>
+                  <a href="mailto:aadiinvestors10@gmail.com" className="text-ink-muted text-sm hover:text-gold-600 transition-colors">
+                    aadiinvestors10@gmail.com
+                  </a>
                 </div>
               </motion.div>
 
@@ -176,7 +307,6 @@ function Contact() {
                   <p className="text-ink-muted text-sm">Sun: On Advance Appointment Basis</p>
                 </div>
               </motion.div>
-
 
               {/* Social Media */}
               <motion.div variants={itemVariants} className="bg-green-100/30 p-6 rounded-xl hover:shadow-md transition-all duration-300">
@@ -212,7 +342,10 @@ function Contact() {
           </div>
 
           {/* Right Column: Contact Form */}
-          <div className="lg:w-2/3 p-8 md:p-12 bg-white">
+          <div className="lg:w-2/3 p-8 md:p-12 bg-white relative">
+            {/* Send Animation Overlay */}
+            <SendOverlay status={submitStatus} />
+
             <h2 className="text-3xl font-bold text-green-950 mb-8">Send Us a Message</h2>
 
             <motion.form
@@ -235,7 +368,7 @@ function Contact() {
                     onChange={handleChange}
                     placeholder="Enter your full name"
                     required
-                    className="w-full md:w-2/3 px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-gold-400/50 focus:border-gold-400 transition-colors"
+                    className={inputClass}
                   />
                 </div>
 
@@ -250,7 +383,7 @@ function Contact() {
                     onChange={handleChange}
                     placeholder="Enter your email"
                     required
-                    className="w-full md:w-2/3 px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-gold-400/50 focus:border-gold-400 transition-colors"
+                    className={inputClass}
                   />
                 </div>
 
@@ -265,7 +398,7 @@ function Contact() {
                     onChange={handleChange}
                     placeholder="Enter your phone number"
                     required
-                    className="w-full md:w-2/3 px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-gold-400/50 focus:border-gold-400 transition-colors"
+                    className={inputClass}
                   />
                 </div>
 
@@ -278,7 +411,7 @@ function Contact() {
                     value={formData.subject}
                     onChange={handleChange}
                     required
-                    className="w-full md:w-2/3 px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-gold-400/50 focus:border-gold-400 transition-colors text-slate-500"
+                    className={inputClass + ' text-slate-500'}
                   >
                     <option value="" disabled>Select a subject</option>
                     {SERVICES.map(s => (
@@ -304,12 +437,16 @@ function Contact() {
               </div>
 
               <div className="pt-6 md:pl-[16.666667%]">
-                <button
+                <motion.button
                   type="submit"
-                  className="btn-primary px-8 py-3.5 shadow-lg shadow-gold-400/15"
+                  disabled={submitStatus === 'sending'}
+                  whileHover={{ scale: submitStatus === 'idle' ? 1.03 : 1 }}
+                  whileTap={{ scale: submitStatus === 'idle' ? 0.97 : 1 }}
+                  className="btn-primary px-8 py-3.5 shadow-lg shadow-gold-400/15 flex items-center gap-2 disabled:opacity-60 disabled:cursor-not-allowed"
                 >
-                  Send Message
-                </button>
+                  <Icons.Send size={18} />
+                  {submitStatus === 'sending' ? 'Sending…' : 'Send Message'}
+                </motion.button>
               </div>
             </motion.form>
           </div>
@@ -320,7 +457,7 @@ function Contact() {
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16">
         <div className="bg-white p-4 rounded-2xl shadow-xl border border-gray-100 h-[500px] w-full overflow-hidden">
           <iframe
-            title="AAadi Investments Location"
+            title="Aadi Investments Location"
             src="https://maps.google.com/maps?q=3,%20Aagman%20apartment,%20Jain%20merchant%20society,%20Mahalaxmi%20five%20road,%20Paldi,%20Ahmedabad-380007&z=16&output=embed"
             width="100%"
             height="100%"
@@ -338,18 +475,17 @@ function Contact() {
           <h2 className="text-3xl font-bold text-green-950 mb-4">Frequently Asked Questions</h2>
           <p className="text-ink-muted">Quick answers to common questions about starting your investment journey with us.</p>
         </div>
-
         <div className="max-w-3xl mx-auto space-y-4">
-          <FAQItem 
-            question="What documents do I need to start investing?" 
+          <FAQItem
+            question="What documents do I need to start investing?"
             answer="To start investing in mutual funds or SIPs, you will need a PAN card, an Aadhaar card (for KYC verification), a cancelled cheque or bank statement, and a passport-size photograph."
           />
-          <FAQItem 
-            question="How is the advisory fee calculated?" 
-            answer="At AAadi Investments, our advisory pricing is structured to be completely transparent. We operate on a customized basis depending on the complexity of your financial plan, with no hidden brokerages."
+          <FAQItem
+            question="How is the advisory fee calculated?"
+            answer="At Aadi Investments, our advisory pricing is structured to be completely transparent. We operate on a customized basis depending on the complexity of your financial plan, with no hidden brokerages."
           />
-          <FAQItem 
-            question="Can NRIs invest in Mutual Funds through you?" 
+          <FAQItem
+            question="Can NRIs invest in Mutual Funds through you?"
             answer="Yes, Non-Resident Indians (NRIs) can easily invest in Indian mutual funds on a fully repatriable or non-repatriable basis using NRE or NRO bank accounts."
           />
         </div>
