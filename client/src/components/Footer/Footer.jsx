@@ -1,4 +1,4 @@
-﻿import { useState } from 'react';
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Mail, Phone, MapPin, Clock, ArrowRight, Check } from 'lucide-react';
 import { ROUTES } from '../../constants/routes';
@@ -182,8 +182,8 @@ function Footer() {
               </li>
               <li className="flex items-center gap-3">
                 <Mail size={18} className="text-gold-400 shrink-0" />
-                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=adiinvestors10@gmail.com" target="_blank" rel="noopener noreferrer" className="hover:text-gold-400 transition-colors duration-200">
-                  adiinvestors10@gmail.com
+                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=aadiinvestors10@gmail.com" target="_blank" rel="noopener noreferrer" className="hover:text-gold-400 transition-colors duration-200">
+                  aadiinvestors10@gmail.com
                 </a>
               </li>
               <li className="flex items-start gap-3">
