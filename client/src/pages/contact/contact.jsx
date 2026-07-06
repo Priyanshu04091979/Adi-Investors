@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+﻿import React, { useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import * as Icons from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -320,7 +320,7 @@ function Contact() {
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16">
         <div className="bg-white p-4 rounded-2xl shadow-xl border border-gray-100 h-[500px] w-full overflow-hidden">
           <iframe
-            title="Adi Investments Location"
+            title="AAadi Investments Location"
             src="https://maps.google.com/maps?q=3,%20Aagman%20apartment,%20Jain%20merchant%20society,%20Mahalaxmi%20five%20road,%20Paldi,%20Ahmedabad-380007&z=16&output=embed"
             width="100%"
             height="100%"
@@ -346,7 +346,7 @@ function Contact() {
           />
           <FAQItem 
             question="How is the advisory fee calculated?" 
-            answer="At Adi Investments, our advisory pricing is structured to be completely transparent. We operate on a customized basis depending on the complexity of your financial plan, with no hidden brokerages."
+            answer="At AAadi Investments, our advisory pricing is structured to be completely transparent. We operate on a customized basis depending on the complexity of your financial plan, with no hidden brokerages."
           />
           <FAQItem 
             question="Can NRIs invest in Mutual Funds through you?" 

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+﻿import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Mail, Phone, MapPin, Clock, ArrowRight, Check } from 'lucide-react';
 import { ROUTES } from '../../constants/routes';
@@ -77,12 +77,12 @@ function Footer() {
             <Link to={ROUTES.HOME} className="flex items-center gap-3 group self-start">
               <img 
                 src="/logo_mark.png" 
-                alt="Aadi Investors Logo" 
+                alt="AAadi Investors Logo" 
                 className="h-14 w-14 object-contain hover:scale-105 transition-transform duration-250" 
               />
               <div className="flex flex-col">
                 <span className="text-white font-bold text-xl leading-none tracking-wide group-hover:text-gold-400 transition-colors duration-250">
-                  Aadi Investors
+                  AAadi Investors
                 </span>
                 <span className="text-gold-400 text-[11px] font-bold tracking-widest leading-none mt-1.5 uppercase">
                   Invest Today, Grow Tomorrow
@@ -90,7 +90,7 @@ function Footer() {
               </div>
             </Link>
             <p className="text-gray-300 text-sm leading-relaxed">
-              Adi Investments is a premier financial advisory firm dedicated to guiding clients through wealth generation, strategic investments, and reliable insurance planning.
+              AAadi Investments is a premier financial advisory firm dedicated to guiding clients through wealth generation, strategic investments, and reliable insurance planning.
             </p>
             {/* Social Icons with Animations */}
             <div className="flex items-center gap-3 flex-wrap">
@@ -170,7 +170,7 @@ function Footer() {
               <li className="flex items-start gap-3">
                 <MapPin size={18} className="text-gold-400 shrink-0 mt-0.5" />
                 <a href="https://maps.google.com/?q=3,+Aagman+apartment,+Jain+merchant+society,+Mahalaxmi+five+road,+Paldi,+Ahmedabad-380007" target="_blank" rel="noopener noreferrer" className="leading-relaxed hover:text-gold-400 transition-colors duration-200">
-                  Adi Investments Office,<br />
+                  AAadi Investments Office,<br />
                   3, Aagman apartment, Jain merchant society, <br />Mahalaxmi five road, Paldi, Ahmedabad-380007
                 </a>
               </li>
@@ -202,7 +202,7 @@ function Footer() {
       <div className="border-t border-gold-400/10 py-6 bg-green-950/80">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-gray-400">
           <div>
-            &copy; {new Date().getFullYear()} Adi Investments. All rights reserved.
+            &copy; {new Date().getFullYear()} AAadi Investments. All rights reserved.
           </div>
           <div className="flex gap-6">
             <Link to={ROUTES.HOME} className="hover:text-gold-400 transition-colors duration-200">

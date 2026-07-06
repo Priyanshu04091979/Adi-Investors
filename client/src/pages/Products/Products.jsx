@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+﻿import { Link } from 'react-router-dom';
 import * as Icons from 'lucide-react';
 import { PRODUCTS } from '../../constants/products';
 import { ROUTES } from '../../constants/routes';
@@ -116,7 +116,7 @@ function Products() {
           </h1>
 
           <p className="text-gray-300 text-base md:text-xl leading-relaxed max-w-3xl mx-auto mb-16">
-            Explore Adi Investments' curated selection of high-performance financial products, tailored to maximize your growth and protect your wealth.
+            Explore AAadi Investments' curated selection of high-performance financial products, tailored to maximize your growth and protect your wealth.
           </p>
 
         </motion.div>

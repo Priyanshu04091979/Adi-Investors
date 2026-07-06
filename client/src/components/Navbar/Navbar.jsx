@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react';
+﻿import { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, ChevronDown, PhoneCall } from 'lucide-react';
 import { ROUTES } from '../../constants/routes';
@@ -142,12 +142,12 @@ function Navbar() {
           <Link to={ROUTES.HOME} className="flex items-center gap-3 group">
             <img 
               src="/logo_mark.png" 
-              alt="Aadi Investors Logo" 
+              alt="AAadi Investors Logo" 
               className="h-12 w-12 object-contain group-hover:scale-105 transition-transform duration-250" 
             />
             <div className="flex flex-col">
               <span className="text-white font-bold text-lg leading-none tracking-wide group-hover:text-gold-400 transition-colors duration-250">
-                Aadi Investors
+                AAadi Investors
               </span>
               <span className="text-gold-400 text-[10px] font-bold tracking-widest leading-none mt-1.5 uppercase">
                 Invest Today, Grow Tomorrow

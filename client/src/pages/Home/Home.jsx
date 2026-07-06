@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+﻿import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import * as Icons from 'lucide-react';
 import { motion } from 'framer-motion';
@@ -85,7 +85,7 @@ function Home() {
           </h1>
 
           <p className="text-gray-300 text-base md:text-xl leading-relaxed max-w-2xl mx-auto mb-10">
-            Adi Investments offers tailored portfolio advisory, mutual funds, tax planning, and customized loan solutions designed to protect and compound your wealth.
+            AAadi Investments offers tailored portfolio advisory, mutual funds, tax planning, and customized loan solutions designed to protect and compound your wealth.
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -149,7 +149,7 @@ function Home() {
       <section className="section-pad bg-green-100/50">
         <div className="max-w-7xl mx-auto">
           <div className="text-center max-w-3xl mx-auto mb-16">
-            <h2 className="section-title section-title-accent inline-block">Why Choose Adi Investments</h2>
+            <h2 className="section-title section-title-accent inline-block">Why Choose AAadi Investments</h2>
             <p className="text-ink-muted text-body-lg mt-4">
               We stand apart through our client-first fiduciary commitment, customized portfolios, and proactive market advisory.
             </p>
@@ -273,7 +273,7 @@ function Home() {
             {[
               {
                 stars: 5,
-                text: "Adi Investments has transformed my portfolio. Their SIP recommendations are spot-on, and their ongoing rebalancing advice has kept me on track.",
+                text: "AAadi Investments has transformed my portfolio. Their SIP recommendations are spot-on, and their ongoing rebalancing advice has kept me on track.",
                 name: "Rajesh Patel",
                 location: "Ahmedabad, Gujarat",
               },
