@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { SERVICES } from '../../constants/services';
 
 // ─── PASTE YOUR APPS SCRIPT WEB APP URL HERE AFTER DEPLOYING ───────────────
-const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/YOUR_SCRIPT_ID/exec';
+const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyG_ighXr4iLAY8p6y6FyRCYSA5MjIXCMbJgUwLVS06chUSnDhJ2DCQh8ZclFS_TBD1/exec';
 // ────────────────────────────────────────────────────────────────────────────
 
 function FAQItem({ question, answer }) {
