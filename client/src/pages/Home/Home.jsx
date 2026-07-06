@@ -60,6 +60,11 @@ function Home() {
     <div className="bg-white">
       {/* 1. Hero Section */}
       <section className="relative bg-gradient-to-br from-green-950 via-green-900 to-green-950 text-white pt-32 pb-24 md:pt-40 md:pb-32 px-4 sm:px-6 lg:px-8 overflow-hidden">
+        {/* Candlestick Chart Background Image Overlay */}
+        <div 
+          className="absolute inset-0 opacity-25 pointer-events-none bg-cover bg-center mix-blend-overlay"
+          style={{ backgroundImage: "url('/images/finance_pattern.jpg')" }}
+        />
         {/* Abstract Gold Background Decor */}
         <div className="absolute inset-0 opacity-10 pointer-events-none">
           <div className="absolute top-0 right-0 w-96 h-96 rounded-full bg-gold-400 blur-3xl transform translate-x-1/2 -translate-y-1/2"></div>
@@ -80,7 +85,7 @@ function Home() {
           </h1>
 
           <p className="text-gray-300 text-base md:text-xl leading-relaxed max-w-2xl mx-auto mb-10">
-            SBS Investments offers tailored portfolio advisory, mutual funds, tax planning, and customized loan solutions designed to protect and compound your wealth.
+            Adi Investments offers tailored portfolio advisory, mutual funds, tax planning, and customized loan solutions designed to protect and compound your wealth.
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -93,23 +98,14 @@ function Home() {
               <Icons.Briefcase size={18} />
             </Link>
           </div>
+
+
         </div>
 
         {/* Decorative Gold Bottom Wave Accent */}
         <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-gold-400 to-transparent opacity-40"></div>
       </section>
 
-      {/* 2. Stats Bar */}
-      <section className="bg-green-950 border-y border-gold-400/15 py-8 md:py-12">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 divide-x divide-gold-400/10">
-            <StatItem value="15" label="Years of Experience" suffix="+" />
-            <StatItem value="5000" label="Clients Served" suffix="+" />
-            <StatItem value="250" label="Assets Under Advisory (Cr)" prefix="₹ " suffix="+" />
-            <StatItem value="10" label="Advisory Services" suffix="+" />
-          </div>
-        </div>
-      </section>
 
       {/* 3. What We Offer (Services Preview) */}
       <section className="section-pad bg-white">
@@ -153,7 +149,7 @@ function Home() {
       <section className="section-pad bg-green-100/50">
         <div className="max-w-7xl mx-auto">
           <div className="text-center max-w-3xl mx-auto mb-16">
-            <h2 className="section-title section-title-accent inline-block">Why Choose SBS Investments</h2>
+            <h2 className="section-title section-title-accent inline-block">Why Choose Adi Investments</h2>
             <p className="text-ink-muted text-body-lg mt-4">
               We stand apart through our client-first fiduciary commitment, customized portfolios, and proactive market advisory.
             </p>
@@ -277,7 +273,7 @@ function Home() {
             {[
               {
                 stars: 5,
-                text: "SBS Investments has transformed my portfolio. Their SIP recommendations are spot-on, and their ongoing rebalancing advice has kept me on track.",
+                text: "Adi Investments has transformed my portfolio. Their SIP recommendations are spot-on, and their ongoing rebalancing advice has kept me on track.",
                 name: "Rajesh Patel",
                 location: "Ahmedabad, Gujarat",
               },

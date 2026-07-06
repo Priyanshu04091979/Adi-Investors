@@ -1,8 +1,39 @@
 import React, { useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import * as Icons from 'lucide-react';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { SERVICES } from '../../constants/services';
+
+function FAQItem({ question, answer }) {
+  const [isOpen, setIsOpen] = useState(false);
+  return (
+    <div className="bg-white rounded-xl border border-gray-100 shadow-sm overflow-hidden transition-all duration-350">
+      <button 
+        type="button"
+        onClick={() => setIsOpen(!isOpen)} 
+        className="w-full px-6 py-4 flex justify-between items-center text-left hover:bg-slate-50 transition-colors"
+      >
+        <span className="font-bold text-green-950 text-base md:text-lg">{question}</span>
+        <Icons.ChevronDown className={`text-gold-500 transition-transform duration-300 ${isOpen ? 'rotate-180' : ''}`} size={20} />
+      </button>
+      <AnimatePresence initial={false}>
+        {isOpen && (
+          <motion.div 
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: 'auto', opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.3 }}
+            className="overflow-hidden"
+          >
+            <div className="px-6 pb-5 pt-1 text-ink-muted text-sm md:text-base leading-relaxed border-t border-slate-50">
+              {answer}
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </div>
+  );
+}
 
 function Contact() {
   const location = useLocation();
@@ -106,7 +137,7 @@ function Contact() {
                 <div>
                   <h3 className="font-bold text-green-950 mb-2">Address</h3>
                   <p className="text-ink-muted text-sm leading-relaxed">
-                    Span Trade Centre, Paldi Rd, Near Bony Travels, Pritam Nagar, Paldi, Ahmedabad, Gujarat 380006
+                    3, Aagman apartment, Jain merchant society, Mahalaxmi five road, Paldi, Ahmedabad-380007
                   </p>
                 </div>
               </motion.div>
@@ -118,8 +149,8 @@ function Contact() {
                 </div>
                 <div>
                   <h3 className="font-bold text-green-950 mb-2">Phone</h3>
-                  <p className="text-ink-muted text-sm mb-1">+91 94272 17798</p>
-                  <p className="text-ink-muted text-sm">+91 79907 44040</p>
+                  <p className="text-ink-muted text-sm mb-1">+91 97730 96553</p>
+                  <p className="text-ink-muted text-sm">+91 97730 96553</p>
                 </div>
               </motion.div>
 
@@ -130,7 +161,7 @@ function Contact() {
                 </div>
                 <div>
                   <h3 className="font-bold text-green-950 mb-2">Email</h3>
-                  <p className="text-ink-muted text-sm">info@sbsinvestments.in</p>
+                  <p className="text-ink-muted text-sm">aadiinvestors10@gmail.com</p>
                 </div>
               </motion.div>
 
@@ -193,7 +224,7 @@ function Contact() {
 
                 {/* Phone Number */}
                 <div className="flex flex-col md:flex-row md:items-center gap-2 md:gap-4">
-                  <label htmlFor="phone" className="text-green-950 font-semibold md:w-1/3">Phone Number</label>
+                  <label htmlFor="phone" className="text-green-950 font-semibold md:w-1/3">Phone Number *</label>
                   <input
                     type="tel"
                     id="phone"
@@ -201,6 +232,7 @@ function Contact() {
                     value={formData.phone}
                     onChange={handleChange}
                     placeholder="Enter your phone number"
+                    required
                     className="w-full md:w-2/3 px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-gold-400/50 focus:border-gold-400 transition-colors"
                   />
                 </div>
@@ -227,14 +259,13 @@ function Contact() {
 
               {/* Message */}
               <div className="flex flex-col md:flex-row gap-2 md:gap-4 pt-4">
-                <label htmlFor="message" className="text-green-950 font-semibold md:w-1/6">Message *</label>
+                <label htmlFor="message" className="text-green-950 font-semibold md:w-1/6">Message</label>
                 <textarea
                   id="message"
                   name="message"
                   value={formData.message}
                   onChange={handleChange}
                   placeholder="Tell us how we can help you..."
-                  required
                   rows="6"
                   className="w-full md:w-5/6 px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-gold-400/50 focus:border-gold-400 transition-colors resize-none"
                 ></textarea>
@@ -257,8 +288,8 @@ function Contact() {
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16">
         <div className="bg-white p-4 rounded-2xl shadow-xl border border-gray-100 h-[500px] w-full overflow-hidden">
           <iframe
-            title="SBS Investments Location"
-            src="https://maps.google.com/maps?q=Span%20Trade%20Center,%20Paldi%20Rd,%20Near%20Bony%20Travels,%20Pritam%20Nagar,%20Paldi,%20Ahmedabad,%20Gujarat%20380006&z=16&output=embed"
+            title="Adi Investments Location"
+            src="https://maps.google.com/maps?q=3,%20Aagman%20apartment,%20Jain%20merchant%20society,%20Mahalaxmi%20five%20road,%20Paldi,%20Ahmedabad-380007&z=16&output=embed"
             width="100%"
             height="100%"
             style={{ border: 0, borderRadius: '0.75rem' }}
@@ -266,6 +297,29 @@ function Contact() {
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"
           ></iframe>
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-24">
+        <div className="text-center max-w-3xl mx-auto mb-16">
+          <h2 className="text-3xl font-bold text-green-950 mb-4">Frequently Asked Questions</h2>
+          <p className="text-ink-muted">Quick answers to common questions about starting your investment journey with us.</p>
+        </div>
+
+        <div className="max-w-3xl mx-auto space-y-4">
+          <FAQItem 
+            question="What documents do I need to start investing?" 
+            answer="To start investing in mutual funds or SIPs, you will need a PAN card, an Aadhaar card (for KYC verification), a cancelled cheque or bank statement, and a passport-size photograph."
+          />
+          <FAQItem 
+            question="How is the advisory fee calculated?" 
+            answer="At Adi Investments, our advisory pricing is structured to be completely transparent. We operate on a customized basis depending on the complexity of your financial plan, with no hidden brokerages."
+          />
+          <FAQItem 
+            question="Can NRIs invest in Mutual Funds through you?" 
+            answer="Yes, Non-Resident Indians (NRIs) can easily invest in Indian mutual funds on a fully repatriable or non-repatriable basis using NRE or NRO bank accounts."
+          />
         </div>
       </section>
     </div>

@@ -2,6 +2,7 @@ import { useEffect, useState, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { SERVICES } from '../../constants/services';
 import { ROUTES } from '../../constants/routes';
+import { motion } from 'framer-motion';
 
 // Stat counter sub-component for premium scroll feel
 function StatItem({ value, label, suffix = '' }) {
@@ -77,6 +78,23 @@ const illustrations = [
   '/images/illustrations/tax_insurance.png'
 ];
 
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: { staggerChildren: 0.15 }
+  }
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 30 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.6, ease: 'easeOut' }
+  }
+};
+
 function Services() {
   const { hash } = useLocation();
 
@@ -104,7 +122,12 @@ function Services() {
           <div className="absolute bottom-0 left-0 w-80 h-80 rounded-full bg-gold-400 blur-3xl transform -translate-x-1/3 translate-y-1/3"></div>
         </div>
 
-        <div className="max-w-4xl mx-auto relative z-10 text-center flex flex-col items-center">
+        <motion.div 
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="max-w-4xl mx-auto relative z-10 text-center flex flex-col items-center"
+        >
           <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-gold-400/10 border border-gold-400/25 text-gold-400 text-xs md:text-sm font-bold tracking-widest uppercase mb-10 shadow-sm animate-pulse">
             Premium Financial Services
           </div>
@@ -117,12 +140,7 @@ function Services() {
             Experience sophisticated financial advisory services crafted for discerning clients. Our comprehensive suite of solutions combines time-tested strategies with innovative approaches to deliver exceptional results.
           </p>
 
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-12 md:gap-24 pt-8 md:pt-12 border-t border-gold-400/20 w-full max-w-2xl mx-auto">
-             <StatItem value="99" label="Client Retention Ratio" suffix="%" />
-             <StatItem value="800" label="Satisfied Clients" suffix="+" />
-             <StatItem value="15" label="Years of Excellence" suffix="+" />
-          </div>
-        </div>
+        </motion.div>
 
         {/* Decorative Gold Bottom Wave Accent */}
         <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-gold-400 to-transparent opacity-40"></div>
@@ -130,7 +148,13 @@ function Services() {
 
       {/* 2. Services Layout Section */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24">
-        <div className="text-center max-w-3xl mx-auto mb-24">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.6 }}
+          className="text-center max-w-3xl mx-auto mb-24"
+        >
           <h2 className="text-4xl md:text-5xl font-bold text-green-950 mb-6 relative inline-block">
             Our Signature Services
             <div className="absolute -bottom-6 left-1/2 -translate-x-1/2 w-16 h-1 bg-green-600 rounded"></div>
@@ -138,7 +162,7 @@ function Services() {
           <p className="text-ink-muted text-lg mt-10 leading-relaxed">
             Discover our comprehensive range of financial services, each designed to address specific aspects of your financial journey with precision and expertise.
           </p>
-        </div>
+        </motion.div>
 
         <div className="flex flex-col gap-24 md:gap-32">
           {SERVICES.map((service, idx) => {
@@ -148,17 +172,25 @@ function Services() {
             const imgSource = illustrations[idx % illustrations.length];
 
             return (
-              <div key={service.id} id={service.id} className={`flex flex-col ${isEven ? 'lg:flex-row' : 'lg:flex-row-reverse'} items-center gap-12 lg:gap-24 scroll-mt-24`}>
+              <motion.div 
+                key={service.id} 
+                id={service.id} 
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, margin: "-150px" }}
+                variants={containerVariants}
+                className={`flex flex-col ${isEven ? 'lg:flex-row' : 'lg:flex-row-reverse'} items-center gap-12 lg:gap-24 scroll-mt-24`}
+              >
 
                 {/* Image Side */}
-                <div className="w-full lg:w-1/2 flex justify-center">
+                <motion.div variants={itemVariants} className="w-full lg:w-1/2 flex justify-center">
                   <div className="relative w-full max-w-lg md:max-w-xl">
                     <img src={imgSource} alt={service.title} className="w-full h-auto object-contain drop-shadow-sm hover:scale-105 transition-transform duration-500" />
                   </div>
-                </div>
+                </motion.div>
 
                 {/* Content Side */}
-                <div className="w-full lg:w-1/2 flex flex-col items-start text-left">
+                <motion.div variants={itemVariants} className="w-full lg:w-1/2 flex flex-col items-start text-left">
                   <h3 className="text-3xl md:text-4xl font-bold text-green-950 mb-6">{service.title}</h3>
                   <p className="text-ink-muted text-lg leading-relaxed mb-8 max-w-xl">
                     {service.description}
@@ -179,9 +211,9 @@ function Services() {
                     <span>I'm Interested</span>
                     <span className="ml-1 opacity-70">→</span>
                   </Link>
-                </div>
+                </motion.div>
 
-              </div>
+              </motion.div>
             );
           })}
         </div>

@@ -9,18 +9,23 @@ export default {
       // ── Color Palette ──────────────────────────────────────
       colors: {
         green: {
-          950: "#012604",    // Primary Dark Green (navbar, hero, footer)
-          700: "#126009",    // Primary Mid Green (buttons, accents)
-          100: "#E8F5E9",    // Light tint (section backgrounds, hover)
+          950: "#422522",    // Primary Dark Espresso (navbar, hero, footer)
+          900: "#331B19",    // Darker Espresso (gradient center)
+          800: "#3B201D",    // Espresso tone
+          700: "#855632",    // Primary Mid Copper Brown (buttons, accents)
+          600: "#986741",    // Soft Copper
+          500: "#855632",    // Copper fallback
+          100: "#FAF6F0",    // Light Cream background tint
+          50:  "#FDFCF7",    // Very light off-white cream
         },
         gold: {
-          400: "#EBCC5A",    // Primary Gold (accent, CTA, highlights)
-          600: "#D4AE3A",    // Gold hover state
+          400: "#BD8A53",    // Camel/Gold Tan CTA
+          600: "#A1713B",    // Darker Camel hover state
         },
         // Text
         ink: {
-          dark:  "#0D1F0D",  // Primary body text on light backgrounds
-          muted: "#4B5563",  // Secondary / caption text
+          dark:  "#33211F",  // Primary deep espresso-brown text
+          muted: "#705E5C",  // Muted warm grey
         },
       },
 
@@ -62,9 +67,9 @@ export default {
 
       // ── Box Shadows ────────────────────────────────────────
       boxShadow: {
-        "card":       "0 4px 20px rgba(1, 38, 4, 0.08)",
-        "card-hover": "0 10px 40px rgba(1, 38, 4, 0.16)",
-        "navbar":     "0 2px 12px rgba(1, 38, 4, 0.10)",
+        "card":       "0 4px 20px rgba(66, 37, 34, 0.08)",
+        "card-hover": "0 10px 40px rgba(66, 37, 34, 0.16)",
+        "navbar":     "0 2px 12px rgba(66, 37, 34, 0.10)",
       },
 
       // ── Transitions & Animations ───────────────────────────

@@ -116,14 +116,9 @@ function Products() {
           </h1>
 
           <p className="text-gray-300 text-base md:text-xl leading-relaxed max-w-3xl mx-auto mb-16">
-            Explore SBS Investments' curated selection of high-performance financial products, tailored to maximize your growth and protect your wealth.
+            Explore Adi Investments' curated selection of high-performance financial products, tailored to maximize your growth and protect your wealth.
           </p>
 
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-12 md:gap-24 pt-8 md:pt-12 border-t border-gold-400/20 w-full max-w-2xl mx-auto">
-             <StatItem value="99" label="Client Retention Ratio" suffix="%" />
-             <StatItem value="800" label="Satisfied Clients" suffix="+" />
-             <StatItem value="15" label="Years of Excellence" suffix="+" />
-          </div>
         </motion.div>
         
         {/* Decorative Gold Bottom Wave Accent */}
@@ -198,6 +193,48 @@ function Products() {
             );
           })}
         </motion.div>
+      </section>
+
+      {/* 3. Performance Reference Widget */}
+      <section className="section-pad bg-green-100/30 border-t border-gold-400/10">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <h2 className="section-title section-title-accent inline-block">Historical Return Overview</h2>
+            <p className="text-ink-muted text-body-lg mt-4">
+              A general comparison of historical asset class returns. Note that mutual funds and equity investments are subject to market returns.
+            </p>
+          </div>
+
+          <div className="bg-white rounded-2xl border border-green-700/5 shadow-md overflow-hidden max-w-4xl mx-auto">
+            <div className="grid grid-cols-3 bg-green-950 text-white font-bold p-4 text-sm md:text-base">
+              <div>Asset Type</div>
+              <div className="text-center">Average Returns (5 Yr)</div>
+              <div className="text-right">Risk Profile</div>
+            </div>
+            <div className="divide-y divide-slate-100 text-sm md:text-base">
+              <div className="grid grid-cols-3 p-4 hover:bg-slate-50 transition-colors">
+                <div className="font-semibold text-green-950">Equity Mutual Funds (SIP)</div>
+                <div className="text-center text-emerald-600 font-bold">12% - 15%</div>
+                <div className="text-right"><span className="px-2 py-0.5 bg-red-100 text-red-700 text-xs font-semibold rounded-full">High</span></div>
+              </div>
+              <div className="grid grid-cols-3 p-4 hover:bg-slate-50 transition-colors">
+                <div className="font-semibold text-green-950">Hybrid / Balanced Funds</div>
+                <div className="text-center text-emerald-600 font-bold">10% - 12%</div>
+                <div className="text-right"><span className="px-2 py-0.5 bg-amber-100 text-amber-700 text-xs font-semibold rounded-full">Moderate</span></div>
+              </div>
+              <div className="grid grid-cols-3 p-4 hover:bg-slate-50 transition-colors">
+                <div className="font-semibold text-green-950">Debt Mutual Funds</div>
+                <div className="text-center text-emerald-600 font-bold">7% - 9%</div>
+                <div className="text-right"><span className="px-2 py-0.5 bg-green-100 text-green-700 text-xs font-semibold rounded-full">Low</span></div>
+              </div>
+              <div className="grid grid-cols-3 p-4 hover:bg-slate-50 transition-colors">
+                <div className="font-semibold text-green-950">Corporate Fixed Deposits</div>
+                <div className="text-center text-emerald-600 font-bold">7.5% - 8.5%</div>
+                <div className="text-right"><span className="px-2 py-0.5 bg-green-100 text-green-700 text-xs font-semibold rounded-full">Low</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
       </section>
     </div>
   );

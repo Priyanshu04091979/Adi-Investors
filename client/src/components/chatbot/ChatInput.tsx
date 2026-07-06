@@ -32,13 +32,13 @@ export default function ChatInput({ onSend, isLoading }: ChatInputProps) {
           value={input}
           onChange={(e) => setInput(e.target.value)}
           placeholder="Type your message..."
-          className="w-full bg-slate-50 border border-slate-200/80 hover:border-slate-300 rounded-full pl-5 pr-12 py-3.5 text-[14px] text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-[#8A2D3B]/20 focus:border-[#8A2D3B] transition-all disabled:opacity-50 shadow-[inset_0_1px_2px_rgba(0,0,0,0.02)]"
+          className="w-full bg-slate-50 border border-slate-200/80 hover:border-slate-300 rounded-full pl-5 pr-12 py-3.5 text-[14px] text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-[#BD8A53]/20 focus:border-[#BD8A53] transition-all disabled:opacity-50 shadow-[inset_0_1px_2px_rgba(0,0,0,0.02)]"
           disabled={isLoading}
         />
         <button
           type="submit"
           disabled={!input.trim() || isLoading}
-          className="absolute right-1.5 bg-[#8A2D3B] text-white rounded-full w-[34px] h-[34px] flex items-center justify-center hover:bg-[#641B2E] hover:shadow-md disabled:opacity-50 disabled:hover:bg-[#8A2D3B] disabled:hover:shadow-none transition-all"
+          className="absolute right-1.5 bg-[#BD8A53] text-white rounded-full w-[34px] h-[34px] flex items-center justify-center hover:bg-[#A1713B] hover:shadow-md disabled:opacity-50 disabled:hover:bg-[#BD8A53] disabled:hover:shadow-none transition-all"
         >
           {isLoading ? (
             <Loader2 size={18} className="animate-spin text-white" />

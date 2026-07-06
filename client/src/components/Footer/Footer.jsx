@@ -67,7 +67,7 @@ function Footer() {
   const [copied, setCopied] = useState(false);
 
   const handleCopyPhone = () => {
-    navigator.clipboard.writeText('+91 98765 43210');
+    navigator.clipboard.writeText('+91 97730 96553');
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   };
@@ -79,24 +79,23 @@ function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
           {/* Column 1: Brand & About */}
           <div className="flex flex-col gap-6">
-            <Link to={ROUTES.HOME} className="flex items-center gap-2 group self-start">
-              <div 
-                className="h-11 w-11 bg-gold-400 flex items-center justify-center font-bold text-white text-sm shadow-md"
-                style={{ clipPath: 'polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)' }}
-              >
-                SBS
-              </div>
+            <Link to={ROUTES.HOME} className="flex items-center gap-3 group self-start">
+              <img 
+                src="/logo_mark.png" 
+                alt="Aadi Investors Logo" 
+                className="h-14 w-14 object-contain hover:scale-105 transition-transform duration-250" 
+              />
               <div className="flex flex-col">
-                <span className="text-white font-bold text-lg leading-none tracking-wide group-hover:text-gold-400 transition-colors duration-250">
-                  SBS
+                <span className="text-white font-bold text-xl leading-none tracking-wide group-hover:text-gold-400 transition-colors duration-250">
+                  Aadi Investors
                 </span>
-                <span className="text-gold-400 text-xs font-semibold tracking-widest leading-none mt-0.5">
-                  INVESTMENTS
+                <span className="text-gold-400 text-[11px] font-bold tracking-widest leading-none mt-1.5 uppercase">
+                  Invest Today, Grow Tomorrow
                 </span>
               </div>
             </Link>
             <p className="text-gray-300 text-sm leading-relaxed">
-              SBS Investments is a premier financial advisory firm dedicated to guiding clients through wealth generation, strategic investments, and reliable insurance planning.
+              Adi Investments is a premier financial advisory firm dedicated to guiding clients through wealth generation, strategic investments, and reliable insurance planning.
             </p>
             {/* Social Icons */}
             <div className="flex items-center gap-4">
@@ -194,21 +193,21 @@ function Footer() {
             <ul className="flex flex-col gap-4 text-sm text-gray-300">
               <li className="flex items-start gap-3">
                 <MapPin size={18} className="text-gold-400 shrink-0 mt-0.5" />
-                <a href="https://maps.google.com/?q=Span+Trade+Centre,+Paldi+Rd,+Near+Bony+Travels,+Pritam+Nagar,+Paldi,+Ahmedabad,+Gujarat+380006" target="_blank" rel="noopener noreferrer" className="leading-relaxed hover:text-gold-400 transition-colors duration-200">
-                  SBS Investments Office,<br />
-                  Span Trade Centre, Paldi Rd, <br />Near Bony Travels, Pritam Nagar, Paldi,<br /> Ahmedabad, Gujarat 380006
+                <a href="https://maps.google.com/?q=3,+Aagman+apartment,+Jain+merchant+society,+Mahalaxmi+five+road,+Paldi,+Ahmedabad-380007" target="_blank" rel="noopener noreferrer" className="leading-relaxed hover:text-gold-400 transition-colors duration-200">
+                  Adi Investments Office,<br />
+                  3, Aagman apartment, Jain merchant society, <br />Mahalaxmi five road, Paldi, Ahmedabad-380007
                 </a>
               </li>
               <li className="flex items-center gap-3 group cursor-pointer w-fit" onClick={handleCopyPhone}>
                 {copied ? <Check size={18} className="text-green-500 shrink-0" /> : <Phone size={18} className="text-gold-400 shrink-0 group-hover:text-green-500 transition-colors duration-200" />}
                 <span className={`transition-colors duration-200 ${copied ? 'text-green-500' : 'group-hover:text-white'}`}>
-                  {copied ? 'Copied!' : '+91 98765 43210'}
+                  {copied ? 'Copied!' : '+91 97730 96553'}
                 </span>
               </li>
               <li className="flex items-center gap-3">
                 <Mail size={18} className="text-gold-400 shrink-0" />
-                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=prospectssbs@gmail.com" target="_blank" rel="noopener noreferrer" className="hover:text-gold-400 transition-colors duration-200">
-                  prospectssbs@gmail.com
+                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=adiinvestors10@gmail.com" target="_blank" rel="noopener noreferrer" className="hover:text-gold-400 transition-colors duration-200">
+                  adiinvestors10@gmail.com
                 </a>
               </li>
               <li className="flex items-start gap-3">
@@ -227,7 +226,7 @@ function Footer() {
       <div className="border-t border-gold-400/10 py-6 bg-green-950/80">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-gray-400">
           <div>
-            &copy; {new Date().getFullYear()} SBS Investments. All rights reserved.
+            &copy; {new Date().getFullYear()} Adi Investments. All rights reserved.
           </div>
           <div className="flex gap-6">
             <Link to={ROUTES.HOME} className="hover:text-gold-400 transition-colors duration-200">
