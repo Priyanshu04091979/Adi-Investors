@@ -15,7 +15,7 @@ function ServicesDropdown({ isOpen, onClose }) {
             <Link
               key={service.id}
               to={service.href}
-              target="_blank"
+              
               onClick={onClose}
               className="flex items-start gap-3 p-3 rounded-lg hover:bg-green-700/40 group transition-all duration-250"
             >

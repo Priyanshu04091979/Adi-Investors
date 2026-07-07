@@ -393,8 +393,8 @@ function Calculator() {
 
                 <div className="flex flex-col md:flex-row md:items-center gap-2 md:gap-6">
                   <label className="text-sm font-bold text-green-950 md:w-1/3">{config.rateLabel}</label>
-                  <div className="md:w-2/3 relative flex items-center gap-3">
-                    <div className="relative flex-grow">
+                  <div className="md:w-2/3 relative flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3">
+                    <div className="relative flex-grow w-full">
                       <input
                         type="number"
                         value={rate}
@@ -402,14 +402,14 @@ function Calculator() {
                         className="w-full pl-4 pr-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-gold-400/50 focus:border-gold-400 transition-colors text-gray-800"
                       />
                     </div>
-                    {config.rateSuffix && <span className="text-gray-500 font-medium text-sm whitespace-nowrap min-w-[140px]">{config.rateSuffix}</span>}
+                    {config.rateSuffix && <span className="text-gray-500 font-medium text-xs sm:text-sm sm:whitespace-nowrap sm:min-w-[140px] mt-1 sm:mt-0">{config.rateSuffix}</span>}
                   </div>
                 </div>
 
                 <div className="flex flex-col md:flex-row md:items-center gap-2 md:gap-6">
                   <label className="text-sm font-bold text-green-950 md:w-1/3">{config.timeLabel}</label>
-                  <div className="md:w-2/3 relative flex items-center gap-3">
-                    <div className="relative flex-grow">
+                  <div className="md:w-2/3 relative flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3">
+                    <div className="relative flex-grow w-full">
                       <input
                         type="number"
                         value={years}
@@ -417,15 +417,15 @@ function Calculator() {
                         className="w-full pl-4 pr-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-gold-400/50 focus:border-gold-400 transition-colors text-gray-800"
                       />
                     </div>
-                    {config.timeSuffix && <span className="text-gray-500 font-medium text-sm whitespace-nowrap min-w-[140px]">{config.timeSuffix}</span>}
+                    {config.timeSuffix && <span className="text-gray-500 font-medium text-xs sm:text-sm sm:whitespace-nowrap sm:min-w-[140px] mt-1 sm:mt-0">{config.timeSuffix}</span>}
                   </div>
                 </div>
 
                 {activeCalc === 'Investment Calculator' && (
                   <div className="flex flex-col md:flex-row md:items-center gap-2 md:gap-6">
                     <label className="text-sm font-bold text-green-950 md:w-1/3">Compounding percentage:</label>
-                    <div className="md:w-2/3 relative flex items-center gap-3">
-                      <div className="relative flex-grow">
+                    <div className="md:w-2/3 relative flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3">
+                      <div className="relative flex-grow w-full">
                         <select
                           value={compoundFreq}
                           onChange={(e) => setCompoundFreq(e.target.value)}
@@ -438,7 +438,7 @@ function Calculator() {
                         </select>
                         <Icons.ChevronDown className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none" size={16} />
                       </div>
-                      <span className="text-gray-500 font-medium text-sm whitespace-nowrap min-w-[140px]">% reinvested profits</span>
+                      <span className="text-gray-500 font-medium text-xs sm:text-sm sm:whitespace-nowrap sm:min-w-[140px] mt-1 sm:mt-0">% reinvested profits</span>
                     </div>
                   </div>
                 )}
