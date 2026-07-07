@@ -202,23 +202,22 @@ function Footer() {
 
       {/* Bottom Copyright Bar */}
       <div className="border-t border-gold-400/10 py-6 bg-green-950/80">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-gray-400">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-gray-400 mb-2">
           <div>
             &copy; {new Date().getFullYear()} Aadi Investments. All rights reserved.
           </div>
-          <div className="flex flex-col md:flex-row items-center gap-2 md:gap-6">
-            <div className="flex items-center gap-4 md:gap-6">
-              <Link to={ROUTES.HOME} className="hover:text-gold-400 transition-colors duration-200">
-                Privacy Policy
-              </Link>
-              <span>·</span>
-              <Link to={ROUTES.HOME} className="hover:text-gold-400 transition-colors duration-200">
-                Terms of Use
-              </Link>
-            </div>
-            <span className="hidden md:block text-gray-600">|</span>
-            <span className="text-gold-400/70 font-semibold tracking-wide">Managed by Quantum</span>
+          <div className="flex gap-6">
+            <Link to={ROUTES.HOME} className="hover:text-gold-400 transition-colors duration-200">
+              Privacy Policy
+            </Link>
+            <span>·</span>
+            <Link to={ROUTES.HOME} className="hover:text-gold-400 transition-colors duration-200">
+              Terms of Use
+            </Link>
           </div>
+        </div>
+        <div className="text-center text-xs text-gray-500 mt-4 md:mt-2">
+          Managed by SBS Quantum
         </div>
       </div>
     </footer>
