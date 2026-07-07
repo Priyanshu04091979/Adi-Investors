@@ -3,6 +3,7 @@ import { useLocation } from 'react-router-dom';
 import * as Icons from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { SERVICES } from '../../constants/services';
+import { PRODUCTS } from '../../constants/products';
 
 // ─── PASTE YOUR APPS SCRIPT WEB APP URL HERE AFTER DEPLOYING ───────────────
 const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyG_ighXr4iLAY8p6y6FyRCYSA5MjIXCMbJgUwLVS06chUSnDhJ2DCQh8ZclFS_TBD1/exec';
@@ -425,9 +426,16 @@ function Contact() {
                     className={inputClass + ' text-slate-500'}
                   >
                     <option value="" disabled>Select a subject</option>
-                    {SERVICES.map(s => (
-                      <option key={s.id} value={s.title}>{s.title}</option>
-                    ))}
+                    <optgroup label="Services">
+                      {SERVICES.map(s => (
+                        <option key={s.id} value={s.title}>{s.title}</option>
+                      ))}
+                    </optgroup>
+                    <optgroup label="Products">
+                      {PRODUCTS.map(p => (
+                        <option key={p.id} value={p.name}>{p.name}</option>
+                      ))}
+                    </optgroup>
                     <option value="Other">Other</option>
                   </select>
                 </div>

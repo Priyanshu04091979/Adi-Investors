@@ -202,7 +202,7 @@ function Products() {
                 </div>
 
                 {/* Invest Now Button -> Redirect to Contact */}
-                <Link to={ROUTES.CONTACT} className="btn-primary w-full flex items-center justify-center gap-2 px-6 py-3 shadow-md shadow-green-700/10 group-hover:bg-gold-500 group-hover:text-green-950 transition-colors">
+                <Link to={ROUTES.CONTACT} state={{ subject: product.name }} className="btn-primary w-full flex items-center justify-center gap-2 px-6 py-3 shadow-md shadow-green-700/10 group-hover:bg-gold-500 group-hover:text-green-950 transition-colors">
                   <span>Invest Now</span>
                   <Icons.ArrowRight size={16} className="group-hover:translate-x-1 transition-transform duration-200" />
                 </Link>
