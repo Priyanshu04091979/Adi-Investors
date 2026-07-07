@@ -189,7 +189,8 @@ function Navbar() {
               onMouseEnter={() => setIsServicesDropdownOpen(true)}
               onMouseLeave={() => setIsServicesDropdownOpen(false)}
             >
-              <button
+              <Link
+                to={ROUTES.SERVICES}
                 ref={setLinkRef(2)}
                 data-active={location.pathname.startsWith('/services') ? "true" : ""}
                 className={`flex items-center gap-1 text-sm font-semibold tracking-wide px-3 py-1.5 rounded-full transition-all duration-350 focus:outline-none cursor-pointer whitespace-nowrap ${location.pathname.startsWith('/services') ? 'text-gold-400 bg-gold-400/10' : 'text-white hover:text-gold-400'
@@ -197,7 +198,7 @@ function Navbar() {
               >
                 Services
                 <ChevronDown size={14} className={`transition-transform duration-250 ${isServicesDropdownOpen ? 'rotate-180' : ''}`} />
-              </button>
+              </Link>
               <ServicesDropdown
                 isOpen={isServicesDropdownOpen}
                 onClose={() => setIsServicesDropdownOpen(false)}
