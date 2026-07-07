@@ -206,14 +206,18 @@ function Footer() {
           <div>
             &copy; {new Date().getFullYear()} Aadi Investments. All rights reserved.
           </div>
-          <div className="flex gap-6">
-            <Link to={ROUTES.HOME} className="hover:text-gold-400 transition-colors duration-200">
-              Privacy Policy
-            </Link>
-            <span>·</span>
-            <Link to={ROUTES.HOME} className="hover:text-gold-400 transition-colors duration-200">
-              Terms of Use
-            </Link>
+          <div className="flex flex-col md:flex-row items-center gap-2 md:gap-6">
+            <div className="flex items-center gap-4 md:gap-6">
+              <Link to={ROUTES.HOME} className="hover:text-gold-400 transition-colors duration-200">
+                Privacy Policy
+              </Link>
+              <span>·</span>
+              <Link to={ROUTES.HOME} className="hover:text-gold-400 transition-colors duration-200">
+                Terms of Use
+              </Link>
+            </div>
+            <span className="hidden md:block text-gray-600">|</span>
+            <span className="text-gold-400/70 font-semibold tracking-wide">Managed by Quantum</span>
           </div>
         </div>
       </div>

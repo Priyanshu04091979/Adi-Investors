@@ -163,7 +163,7 @@ function Navbar() {
           <div className="hidden lg:flex items-center gap-3 xl:gap-8">
             <Link
               to={ROUTES.HOME}
-              
+              onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
               ref={setLinkRef(0)}
               data-active={isLinkActive(ROUTES.HOME) ? "true" : ""}
               className={`text-sm font-semibold tracking-wide px-3 py-1.5 rounded-full transition-all duration-350 whitespace-nowrap ${isLinkActive(ROUTES.HOME) ? 'text-gold-400 bg-gold-400/10' : 'text-white hover:text-gold-400'
@@ -174,7 +174,7 @@ function Navbar() {
 
             <Link
               to={ROUTES.ABOUT}
-              
+              onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
               ref={setLinkRef(1)}
               data-active={isLinkActive(ROUTES.ABOUT) ? "true" : ""}
               className={`text-sm font-semibold tracking-wide px-3 py-1.5 rounded-full transition-all duration-350 whitespace-nowrap ${isLinkActive(ROUTES.ABOUT) ? 'text-gold-400 bg-gold-400/10' : 'text-white hover:text-gold-400'
@@ -191,6 +191,7 @@ function Navbar() {
             >
               <Link
                 to={ROUTES.SERVICES}
+                onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
                 ref={setLinkRef(2)}
                 data-active={location.pathname.startsWith('/services') ? "true" : ""}
                 className={`flex items-center gap-1 text-sm font-semibold tracking-wide px-3 py-1.5 rounded-full transition-all duration-350 focus:outline-none cursor-pointer whitespace-nowrap ${location.pathname.startsWith('/services') ? 'text-gold-400 bg-gold-400/10' : 'text-white hover:text-gold-400'
@@ -207,7 +208,7 @@ function Navbar() {
 
             <Link
               to={ROUTES.PRODUCTS}
-              
+              onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
               ref={setLinkRef(3)}
               data-active={isLinkActive(ROUTES.PRODUCTS) ? "true" : ""}
               className={`text-sm font-semibold tracking-wide px-3 py-1.5 rounded-full transition-all duration-350 whitespace-nowrap ${isLinkActive(ROUTES.PRODUCTS) ? 'text-gold-400 bg-gold-400/10' : 'text-white hover:text-gold-400'
@@ -218,7 +219,7 @@ function Navbar() {
 
             <Link
               to={ROUTES.CALCULATORS}
-              
+              onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
               ref={setLinkRef(4)}
               data-active={isLinkActive(ROUTES.CALCULATORS) ? "true" : ""}
               className={`text-sm font-semibold tracking-wide px-3 py-1.5 rounded-full transition-all duration-350 whitespace-nowrap ${isLinkActive(ROUTES.CALCULATORS) ? 'text-gold-400 bg-gold-400/10' : 'text-white hover:text-gold-400'
@@ -229,7 +230,7 @@ function Navbar() {
 
             <Link
               to={ROUTES.CONTACT}
-              
+              onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
               ref={setLinkRef(5)}
               data-active={isLinkActive(ROUTES.CONTACT) ? "true" : ""}
               className={`text-sm font-semibold tracking-wide px-3 py-1.5 rounded-full transition-all duration-350 whitespace-nowrap ${isLinkActive(ROUTES.CONTACT) ? 'text-gold-400 bg-gold-400/10' : 'text-white hover:text-gold-400'
@@ -241,7 +242,7 @@ function Navbar() {
 
           {/* Desktop Right CTA Button */}
           <div className={`hidden lg:flex items-center transition-opacity duration-300 ${location.pathname === ROUTES.CONTACT ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}>
-            <Link to={ROUTES.CONTACT} className="btn-primary flex items-center gap-1.5 xl:gap-2 text-xs xl:text-sm px-3 py-2 xl:px-5 xl:py-2.5 whitespace-nowrap">
+            <Link to={ROUTES.CONTACT} onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="btn-primary flex items-center gap-1.5 xl:gap-2 text-xs xl:text-sm px-3 py-2 xl:px-5 xl:py-2.5 whitespace-nowrap">
               <PhoneCall size={16} />
               <span>Get in Touch</span>
             </Link>
