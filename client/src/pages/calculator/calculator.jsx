@@ -429,7 +429,7 @@ function Calculator() {
                         className="w-full pl-4 pr-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-gold-400/50 focus:border-gold-400 transition-colors text-gray-800"
                       />
                     </div>
-                    {config.rateSuffix && <span className="text-gray-500 font-medium text-xs sm:text-sm sm:whitespace-nowrap sm:min-w-[140px] mt-1 sm:mt-0">{config.rateSuffix}</span>}
+                    {config.rateSuffix && <span className="text-gray-500 font-medium text-xs sm:text-sm mt-1 sm:mt-0 break-words">{config.rateSuffix}</span>}
                   </div>
                 </div>
 
@@ -444,7 +444,7 @@ function Calculator() {
                         className="w-full pl-4 pr-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-gold-400/50 focus:border-gold-400 transition-colors text-gray-800"
                       />
                     </div>
-                    {config.timeSuffix && <span className="text-gray-500 font-medium text-xs sm:text-sm sm:whitespace-nowrap sm:min-w-[140px] mt-1 sm:mt-0">{config.timeSuffix}</span>}
+                    {config.timeSuffix && <span className="text-gray-500 font-medium text-xs sm:text-sm mt-1 sm:mt-0 break-words">{config.timeSuffix}</span>}
                   </div>
                 </div>
 
@@ -465,7 +465,7 @@ function Calculator() {
                         </select>
                         <Icons.ChevronDown className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none" size={16} />
                       </div>
-                      <span className="text-gray-500 font-medium text-xs sm:text-sm sm:whitespace-nowrap sm:min-w-[140px] mt-1 sm:mt-0">% reinvested profits</span>
+                      <span className="text-gray-500 font-medium text-xs sm:text-sm mt-1 sm:mt-0 break-words">% reinvested profits</span>
                     </div>
                   </div>
                 )}
@@ -480,29 +480,29 @@ function Calculator() {
 
             {/* Results & Chart Card */}
             <div className="bg-white rounded-2xl shadow-lg border border-green-700/5 p-6 md:p-8">
-              <div className={`grid grid-cols-1 ${isEmi ? 'md:grid-cols-4' : 'md:grid-cols-3'} gap-4 mb-8`}>
+              <div className={`grid grid-cols-1 sm:grid-cols-2 ${isEmi ? 'lg:grid-cols-4' : 'lg:grid-cols-3'} gap-4 mb-8`}>
                 <div className="bg-green-50 p-4 rounded-xl border border-green-100 text-center">
                   <p className="text-sm text-green-800 font-medium mb-1">
                     {isEmi ? 'Principal Amount' : 'Total Invested'}
                   </p>
-                  <p className="text-xl font-bold text-green-950">{formatCurrency(summary.totalInvested)}</p>
+                  <p className="text-xl font-bold text-green-950 truncate" title={formatCurrency(summary.totalInvested)}>{formatCurrency(summary.totalInvested)}</p>
                 </div>
                 <div className="bg-gold-50 p-4 rounded-xl border border-gold-100 text-center">
                   <p className="text-sm text-gold-800 font-medium mb-1">
                     {isEmi ? 'Total Interest' : 'Est. Returns'}
                   </p>
-                  <p className="text-xl font-bold text-green-950">{formatCurrency(summary.estimatedReturns)}</p>
+                  <p className="text-xl font-bold text-green-950 truncate" title={formatCurrency(summary.estimatedReturns)}>{formatCurrency(summary.estimatedReturns)}</p>
                 </div>
                 <div className="bg-green-950 p-4 rounded-xl border border-green-900 text-center">
                   <p className="text-sm text-green-100 font-medium mb-1">
                     {isEmi ? 'Total Payment' : 'Total Value'}
                   </p>
-                  <p className="text-xl font-bold text-gold-400">{formatCurrency(summary.totalValue)}</p>
+                  <p className="text-xl font-bold text-gold-400 truncate" title={formatCurrency(summary.totalValue)}>{formatCurrency(summary.totalValue)}</p>
                 </div>
                 {isEmi && (
                   <div className="bg-blue-50 p-4 rounded-xl border border-blue-100 text-center">
                     <p className="text-sm text-blue-800 font-medium mb-1">Monthly EMI</p>
-                    <p className="text-xl font-bold text-blue-950">{formatCurrency(summary.emiAmount || 0)}</p>
+                    <p className="text-xl font-bold text-blue-950 truncate" title={formatCurrency(summary.emiAmount || 0)}>{formatCurrency(summary.emiAmount || 0)}</p>
                   </div>
                 )}
               </div>
