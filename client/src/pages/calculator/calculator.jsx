@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import * as Icons from 'lucide-react';
 import {
@@ -64,7 +64,7 @@ function Calculator() {
     calculateReturns();
   };
 
-  const calculateReturns = () => {
+  function calculateReturns() {
     let data = [];
     const r = (parseFloat(rate) || 0) / 100;
     const y = parseInt(years) || 0;

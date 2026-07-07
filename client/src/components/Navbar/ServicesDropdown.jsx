@@ -11,12 +11,17 @@ function ServicesDropdown({ isOpen, onClose }) {
       <div className="grid grid-cols-2 gap-4">
         {SERVICES.map((service) => {
           const IconComponent = Icons[service.icon];
+          const handleLinkClick = (e) => {
+            if (e.button === 0 && !e.ctrlKey && !e.metaKey && !e.shiftKey && !e.altKey) {
+              onClose();
+            }
+          };
           return (
             <Link
               key={service.id}
               to={service.href}
               
-              onClick={onClose}
+              onClick={handleLinkClick}
               className="flex items-start gap-3 p-3 rounded-lg hover:bg-green-700/40 group transition-all duration-250"
             >
               <div className="p-2 bg-green-700/30 rounded-md text-gold-400 group-hover:bg-gold-400 group-hover:text-green-950 transition-colors duration-250 mt-0.5">
