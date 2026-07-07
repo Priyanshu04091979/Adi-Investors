@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import * as Icons from 'lucide-react';
 import {
@@ -12,6 +12,7 @@ import {
 } from 'recharts';
 
 function Calculator() {
+  const formRef = useRef(null);
   const [activeCalc, setActiveCalc] = useState('Investment Calculator');
 
   // Unified state for inputs
@@ -48,6 +49,14 @@ function Calculator() {
     if (defaults.annualContribution !== undefined) setAnnualContribution(defaults.annualContribution);
     if (defaults.compoundFreq !== undefined) setCompoundFreq(defaults.compoundFreq);
     if (defaults.type) setMfInvestmentType(defaults.type);
+
+    if (window.innerWidth < 1024 && formRef.current) {
+      setTimeout(() => {
+        const yOffset = -100;
+        const y = formRef.current.getBoundingClientRect().top + window.scrollY + yOffset;
+        window.scrollTo({ top: y, behavior: 'smooth' });
+      }, 50);
+    }
   };
 
   const handleCalculate = (e) => {
@@ -331,6 +340,7 @@ function Calculator() {
 
           {/* Main Calculator Content */}
           <motion.div
+            ref={formRef}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
@@ -338,7 +348,24 @@ function Calculator() {
           >
             {/* Form Card */}
             <div className="bg-white rounded-2xl shadow-lg border border-green-700/5 p-6 md:p-10">
-              <h2 className="text-2xl font-bold text-green-950 mb-8 border-b border-gray-100 pb-4 inline-block">{activeCalc === 'MF Returns Calculator' ? 'Mutual Fund Returns Calculator' : activeCalc}</h2>
+              <h2 className="text-2xl font-bold text-green-950 mb-6 border-b border-gray-100 pb-4 inline-block">{activeCalc === 'MF Returns Calculator' ? 'Mutual Fund Returns Calculator' : activeCalc}</h2>
+
+              {/* Mobile-only Calculator Selector Dropdown */}
+              <div className="lg:hidden mb-8 relative">
+                <label className="block text-sm font-bold text-green-950 mb-2">Select Calculator:</label>
+                <div className="relative">
+                  <select 
+                    value={activeCalc}
+                    onChange={(e) => handleCalcChange(e.target.value)}
+                    className="w-full px-4 py-3 rounded-lg border border-gold-400/50 focus:outline-none focus:ring-2 focus:ring-gold-400 bg-gold-50 appearance-none text-green-950 font-semibold"
+                  >
+                    {calculatorsList.map((calc, idx) => (
+                      <option key={idx} value={calc}>{calc}</option>
+                    ))}
+                  </select>
+                  <Icons.ChevronDown className="absolute right-4 top-1/2 -translate-y-1/2 text-gold-600 pointer-events-none" size={18} />
+                </div>
+              </div>
 
               <form onSubmit={handleCalculate} className="flex flex-col gap-6 max-w-4xl">
 
@@ -513,7 +540,7 @@ function Calculator() {
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.2 }}
-            className="lg:w-1/4"
+            className="hidden lg:block lg:w-1/4"
           >
             <div className="bg-white rounded-2xl shadow-lg border border-green-700/5 p-6 sticky top-28">
               <h3 className="text-lg font-bold text-green-950 mb-4 border-b border-gray-100 pb-3">Calculators</h3>

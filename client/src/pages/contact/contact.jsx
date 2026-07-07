@@ -228,7 +228,7 @@ function Contact() {
     visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: 'easeOut' } },
   };
 
-  const inputClass = "w-full md:w-2/3 px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-gold-400/50 focus:border-gold-400 transition-colors";
+  const inputClass = "w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-gold-400/50 focus:border-gold-400 transition-colors";
 
   return (
     <div className="bg-slate-50 min-h-screen">
@@ -364,8 +364,8 @@ function Contact() {
             >
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 {/* Full Name */}
-                <div className="flex flex-col md:flex-row md:items-center gap-2 md:gap-4">
-                  <label htmlFor="fullName" className="text-green-950 font-semibold md:w-1/3">Full Name *</label>
+                <div className="flex flex-col gap-2">
+                  <label htmlFor="fullName" className="text-green-950 font-semibold">Full Name *</label>
                   <input
                     type="text"
                     id="fullName"
@@ -379,8 +379,8 @@ function Contact() {
                 </div>
 
                 {/* Email */}
-                <div className="flex flex-col md:flex-row md:items-center gap-2 md:gap-4">
-                  <label htmlFor="email" className="text-green-950 font-semibold md:w-1/3">Email *</label>
+                <div className="flex flex-col gap-2">
+                  <label htmlFor="email" className="text-green-950 font-semibold">Email *</label>
                   <input
                     type="email"
                     id="email"
@@ -396,8 +396,8 @@ function Contact() {
                 </div>
 
                 {/* Phone Number */}
-                <div className="flex flex-col md:flex-row md:items-center gap-2 md:gap-4">
-                  <label htmlFor="phone" className="text-green-950 font-semibold md:w-1/3">Phone Number *</label>
+                <div className="flex flex-col gap-2">
+                  <label htmlFor="phone" className="text-green-950 font-semibold">Phone Number *</label>
                   <input
                     type="tel"
                     id="phone"
@@ -414,8 +414,8 @@ function Contact() {
                 </div>
 
                 {/* Subject */}
-                <div className="flex flex-col md:flex-row md:items-center gap-2 md:gap-4">
-                  <label htmlFor="subject" className="text-green-950 font-semibold md:w-1/3">Subject *</label>
+                <div className="flex flex-col gap-2">
+                  <label htmlFor="subject" className="text-green-950 font-semibold">Subject *</label>
                   <select
                     id="subject"
                     name="subject"
@@ -434,20 +434,20 @@ function Contact() {
               </div>
 
               {/* Message */}
-              <div className="flex flex-col md:flex-row gap-2 md:gap-4 pt-4">
-                <label htmlFor="message" className="text-green-950 font-semibold md:w-1/6">Message</label>
+              <div className="flex flex-col gap-2 pt-4">
+                <label htmlFor="message" className="text-green-950 font-semibold">Message</label>
                 <textarea
                   id="message"
                   name="message"
                   value={formData.message}
                   onChange={handleChange}
                   placeholder="Tell us how we can help you..."
-                  rows="6"
-                  className="w-full md:w-5/6 px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-gold-400/50 focus:border-gold-400 transition-colors resize-none"
+                  rows="4"
+                  className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-gold-400/50 focus:border-gold-400 transition-colors resize-y"
                 ></textarea>
               </div>
 
-              <div className="pt-6 md:pl-[16.666667%]">
+              <div className="pt-6">
                 <motion.button
                   type="submit"
                   disabled={submitStatus === 'sending'}
