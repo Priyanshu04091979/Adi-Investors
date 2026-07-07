@@ -113,7 +113,7 @@ function Services() {
   }, [hash]);
 
   return (
-    <div className="bg-white pb-24">
+    <div className="bg-slate-50 pb-24">
       {/* 1. Hero Section */}
       <section className="relative bg-gradient-to-br from-green-950 via-green-900 to-green-950 text-white pt-32 pb-24 px-4 sm:px-6 lg:px-8 overflow-hidden">
         {/* Abstract Gold Background Decor */}
@@ -164,7 +164,7 @@ function Services() {
           </p>
         </motion.div>
 
-        <div className="flex flex-col gap-24 md:gap-32">
+        <div className="flex flex-col gap-12 md:gap-16">
           {SERVICES.map((service, idx) => {
             // Alternate layout: Image left vs Image right
             const isEven = idx % 2 === 0;
@@ -179,7 +179,7 @@ function Services() {
                 whileInView="visible"
                 viewport={{ once: true, margin: "-150px" }}
                 variants={containerVariants}
-                className={`flex flex-col ${isEven ? 'lg:flex-row' : 'lg:flex-row-reverse'} items-center gap-12 lg:gap-24 scroll-mt-24`}
+                className={`flex flex-col ${isEven ? 'lg:flex-row' : 'lg:flex-row-reverse'} items-center gap-12 lg:gap-16 scroll-mt-24 bg-white rounded-3xl p-8 md:p-12 lg:p-16 shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-green-900/5 hover:border-gold-400/30 hover:shadow-[0_8px_30px_rgb(0,0,0,0.08)] transition-all duration-500 group`}
               >
 
                 {/* Image Side */}
