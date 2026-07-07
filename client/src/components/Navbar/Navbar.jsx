@@ -277,7 +277,7 @@ function Navbar() {
         <div className="flex flex-col gap-5 overflow-y-auto max-h-[calc(100vh-140px)]">
           <Link
             to={ROUTES.HOME}
-            
+            onClick={() => { setIsMobileMenuOpen(false); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
             className={`text-base font-semibold py-1.5 transition-colors duration-250 ${isLinkActive(ROUTES.HOME) ? 'text-gold-400 border-l-2 border-gold-400 pl-2' : 'text-white hover:text-gold-400'
               }`}
           >
@@ -286,7 +286,7 @@ function Navbar() {
 
           <Link
             to={ROUTES.ABOUT}
-            
+            onClick={() => { setIsMobileMenuOpen(false); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
             className={`text-base font-semibold py-1.5 transition-colors duration-250 ${isLinkActive(ROUTES.ABOUT) ? 'text-gold-400 border-l-2 border-gold-400 pl-2' : 'text-white hover:text-gold-400'
               }`}
           >
@@ -311,7 +311,7 @@ function Navbar() {
               <div className="pl-4 mt-2 border-l border-gold-400/20 flex flex-col gap-3">
                 <Link
                   to={ROUTES.SERVICES}
-                  
+                  onClick={() => { setIsMobileMenuOpen(false); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
                   className="text-sm text-gray-300 hover:text-gold-400 py-1 transition-colors duration-250 font-medium"
                 >
                   All Services Overview
@@ -320,7 +320,7 @@ function Navbar() {
                   <Link
                     key={service.id}
                     to={service.href}
-                    
+                    onClick={() => { setIsMobileMenuOpen(false); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
                     className="text-sm text-gray-300 hover:text-gold-400 py-1 transition-colors duration-250"
                   >
                     {service.title}
@@ -332,7 +332,7 @@ function Navbar() {
 
           <Link
             to={ROUTES.PRODUCTS}
-            
+            onClick={() => { setIsMobileMenuOpen(false); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
             className={`text-base font-semibold py-1.5 transition-colors duration-250 ${isLinkActive(ROUTES.PRODUCTS) ? 'text-gold-400 border-l-2 border-gold-400 pl-2' : 'text-white hover:text-gold-400'
               }`}
           >
@@ -341,7 +341,7 @@ function Navbar() {
 
           <Link
             to={ROUTES.CALCULATORS}
-            
+            onClick={() => { setIsMobileMenuOpen(false); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
             className={`text-base font-semibold py-1.5 transition-colors duration-250 ${isLinkActive(ROUTES.CALCULATORS) ? 'text-gold-400 border-l-2 border-gold-400 pl-2' : 'text-white hover:text-gold-400'
               }`}
           >
@@ -350,7 +350,7 @@ function Navbar() {
 
           <Link
             to={ROUTES.CONTACT}
-            
+            onClick={() => { setIsMobileMenuOpen(false); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
             className={`text-base font-semibold py-1.5 transition-colors duration-250 ${isLinkActive(ROUTES.CONTACT) ? 'text-gold-400 border-l-2 border-gold-400 pl-2' : 'text-white hover:text-gold-400'
               }`}
           >
@@ -360,6 +360,7 @@ function Navbar() {
           {location.pathname !== ROUTES.CONTACT && (
             <Link
               to={ROUTES.CONTACT}
+              onClick={() => { setIsMobileMenuOpen(false); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
               className="btn-primary flex items-center justify-center gap-2 mt-4 py-3"
             >
               <PhoneCall size={18} />
