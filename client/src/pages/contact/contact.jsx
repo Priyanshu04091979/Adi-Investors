@@ -257,7 +257,7 @@ function Contact() {
         <div className="bg-white rounded-2xl shadow-xl overflow-hidden flex flex-col lg:flex-row">
 
           {/* Left Column: Contact Information */}
-          <div className="lg:w-1/3 bg-white p-8 md:p-12 border-r border-gray-100">
+          <div className="lg:w-1/3 bg-white p-6 md:p-8 xl:p-12 border-r border-gray-100">
             <h2 className="text-3xl font-bold text-green-950 mb-8">Contact Information</h2>
             <motion.div
               variants={containerVariants}
@@ -267,7 +267,7 @@ function Contact() {
               className="space-y-6"
             >
               {/* Address */}
-              <motion.div variants={itemVariants} className="bg-green-100/30 p-6 rounded-xl flex items-start gap-4 hover:shadow-md transition-all duration-300">
+              <motion.div variants={itemVariants} className="bg-green-100/30 p-5 md:p-6 lg:p-5 xl:p-6 rounded-xl flex items-start gap-4 hover:shadow-md transition-all duration-300">
                 <div className="h-12 w-12 rounded-full bg-gold-400/10 border border-gold-400/20 text-gold-600 flex items-center justify-center flex-shrink-0">
                   <Icons.MapPin size={24} />
                 </div>
@@ -280,7 +280,7 @@ function Contact() {
               </motion.div>
 
               {/* Phone */}
-              <motion.div variants={itemVariants} className="bg-green-100/30 p-6 rounded-xl flex items-start gap-4 hover:shadow-md transition-all duration-300">
+              <motion.div variants={itemVariants} className="bg-green-100/30 p-5 md:p-6 lg:p-5 xl:p-6 rounded-xl flex items-start gap-4 hover:shadow-md transition-all duration-300">
                 <div className="h-12 w-12 rounded-full bg-gold-400/10 border border-gold-400/20 text-gold-600 flex items-center justify-center flex-shrink-0">
                   <Icons.Phone size={24} />
                 </div>
@@ -291,7 +291,7 @@ function Contact() {
               </motion.div>
 
               {/* Email */}
-              <motion.div variants={itemVariants} className="bg-green-100/30 p-6 rounded-xl flex items-start gap-4 hover:shadow-md transition-all duration-300">
+              <motion.div variants={itemVariants} className="bg-green-100/30 p-5 md:p-6 lg:p-5 xl:p-6 rounded-xl flex items-start gap-4 hover:shadow-md transition-all duration-300">
                 <div className="h-12 w-12 rounded-full bg-gold-400/10 border border-gold-400/20 text-gold-600 flex items-center justify-center flex-shrink-0">
                   <Icons.Mail size={24} />
                 </div>
@@ -304,7 +304,7 @@ function Contact() {
               </motion.div>
 
               {/* Business Hours */}
-              <motion.div variants={itemVariants} className="bg-green-100/30 p-6 rounded-xl flex items-start gap-4 hover:shadow-md transition-all duration-300">
+              <motion.div variants={itemVariants} className="bg-green-100/30 p-5 md:p-6 lg:p-5 xl:p-6 rounded-xl flex items-start gap-4 hover:shadow-md transition-all duration-300">
                 <div className="h-12 w-12 rounded-full bg-gold-400/10 border border-gold-400/20 text-gold-600 flex items-center justify-center flex-shrink-0">
                   <Icons.Clock size={24} />
                 </div>
@@ -316,7 +316,7 @@ function Contact() {
               </motion.div>
 
               {/* Social Media */}
-              <motion.div variants={itemVariants} className="bg-green-100/30 p-6 rounded-xl hover:shadow-md transition-all duration-300">
+              <motion.div variants={itemVariants} className="bg-green-100/30 p-5 md:p-6 lg:p-5 xl:p-6 rounded-xl hover:shadow-md transition-all duration-300">
                 <h3 className="font-bold text-green-950 mb-4">Follow Us</h3>
                 <div className="flex items-center gap-2 sm:gap-3 lg:gap-1.5 xl:gap-3 flex-wrap">
                   {[
