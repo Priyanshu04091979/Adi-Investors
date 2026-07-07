@@ -239,14 +239,12 @@ function Navbar() {
           </div>
 
           {/* Desktop Right CTA Button */}
-          {location.pathname !== ROUTES.CONTACT && (
-            <div className="hidden lg:flex items-center">
-              <Link to={ROUTES.CONTACT} className="btn-primary flex items-center gap-2 text-sm px-5 py-2.5">
-                <PhoneCall size={16} />
-                <span>Get in Touch</span>
-              </Link>
-            </div>
-          )}
+          <div className={`hidden lg:flex items-center transition-opacity duration-300 ${location.pathname === ROUTES.CONTACT ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}>
+            <Link to={ROUTES.CONTACT} className="btn-primary flex items-center gap-2 text-sm px-5 py-2.5">
+              <PhoneCall size={16} />
+              <span>Get in Touch</span>
+            </Link>
+          </div>
 
           {/* Mobile menu button */}
           <div className="flex lg:hidden">
