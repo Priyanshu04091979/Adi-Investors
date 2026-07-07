@@ -180,7 +180,13 @@ function Contact() {
   const [submitStatus, setSubmitStatus] = useState('idle'); // idle | sending | success | error
 
   const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    const { name, value } = e.target;
+    if (name === 'phone') {
+      const numericValue = value.replace(/\D/g, '').slice(0, 10);
+      setFormData(prev => ({ ...prev, [name]: numericValue }));
+    } else {
+      setFormData(prev => ({ ...prev, [name]: value }));
+    }
   };
 
   const handleSubmit = async (e) => {
@@ -382,6 +388,8 @@ function Contact() {
                     value={formData.email}
                     onChange={handleChange}
                     placeholder="Enter your email"
+                    pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$"
+                    title="Please enter a valid email address."
                     required
                     className={inputClass}
                   />
@@ -396,7 +404,10 @@ function Contact() {
                     name="phone"
                     value={formData.phone}
                     onChange={handleChange}
-                    placeholder="Enter your phone number"
+                    placeholder="Enter your 10-digit phone number"
+                    pattern="\d{10}"
+                    title="Please enter exactly 10 digits"
+                    maxLength="10"
                     required
                     className={inputClass}
                   />

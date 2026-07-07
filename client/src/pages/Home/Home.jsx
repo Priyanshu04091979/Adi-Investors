@@ -1,4 +1,4 @@
-﻿import { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import * as Icons from 'lucide-react';
 import { motion } from 'framer-motion';
@@ -246,7 +246,7 @@ function Home() {
                     {product.highlight}
                   </div>
 
-                  <Link to={ROUTES.PRODUCTS} className="text-green-700 hover:text-gold-600 font-semibold text-sm flex items-center gap-1 group transition-colors duration-250 mt-auto">
+                  <Link to={`${ROUTES.PRODUCTS}#${product.id}`} className="text-green-700 hover:text-gold-600 font-semibold text-sm flex items-center gap-1 group transition-colors duration-250 mt-auto">
                     <span>View Details</span>
                     <Icons.ArrowRight size={14} className="group-hover:translate-x-1 transition-transform duration-200" />
                   </Link>

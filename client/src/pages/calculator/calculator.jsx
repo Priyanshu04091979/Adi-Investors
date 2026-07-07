@@ -188,7 +188,8 @@ function Calculator() {
       setSummary({
         totalInvested: Math.round(p),
         estimatedReturns: Math.round(totalInterest),
-        totalValue: Math.round(totalPayment)
+        totalValue: Math.round(totalPayment),
+        emiAmount: Math.round(emi)
       });
     }
   };
@@ -452,7 +453,7 @@ function Calculator() {
 
             {/* Results & Chart Card */}
             <div className="bg-white rounded-2xl shadow-lg border border-green-700/5 p-6 md:p-8">
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
+              <div className={`grid grid-cols-1 ${isEmi ? 'md:grid-cols-4' : 'md:grid-cols-3'} gap-4 mb-8`}>
                 <div className="bg-green-50 p-4 rounded-xl border border-green-100 text-center">
                   <p className="text-sm text-green-800 font-medium mb-1">
                     {isEmi ? 'Principal Amount' : 'Total Invested'}
@@ -471,6 +472,12 @@ function Calculator() {
                   </p>
                   <p className="text-xl font-bold text-gold-400">{formatCurrency(summary.totalValue)}</p>
                 </div>
+                {isEmi && (
+                  <div className="bg-blue-50 p-4 rounded-xl border border-blue-100 text-center">
+                    <p className="text-sm text-blue-800 font-medium mb-1">Monthly EMI</p>
+                    <p className="text-xl font-bold text-blue-950">{formatCurrency(summary.emiAmount || 0)}</p>
+                  </div>
+                )}
               </div>
 
               <h3 className="text-xl font-bold text-green-950 mb-6">

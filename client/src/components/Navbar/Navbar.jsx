@@ -1,4 +1,4 @@
-﻿import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, ChevronDown, PhoneCall } from 'lucide-react';
 import { ROUTES } from '../../constants/routes';
@@ -139,7 +139,11 @@ function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <Link to={ROUTES.HOME} className="flex items-center gap-3 group">
+          <Link 
+            to={ROUTES.HOME} 
+            onClick={() => location.pathname === ROUTES.HOME && window.scrollTo({ top: 0, behavior: 'smooth' })}
+            className="flex items-center gap-3 group"
+          >
             <img 
               src="/logo_mark.png" 
               alt="Aadi Investors Logo" 
@@ -159,6 +163,7 @@ function Navbar() {
           <div className="hidden lg:flex items-center gap-8">
             <Link
               to={ROUTES.HOME}
+              target="_blank"
               ref={setLinkRef(0)}
               data-active={isLinkActive(ROUTES.HOME) ? "true" : ""}
               className={`text-sm font-semibold tracking-wide px-3 py-1.5 rounded-full transition-all duration-350 ${isLinkActive(ROUTES.HOME) ? 'text-gold-400 bg-gold-400/10' : 'text-white hover:text-gold-400'
@@ -169,6 +174,7 @@ function Navbar() {
 
             <Link
               to={ROUTES.ABOUT}
+              target="_blank"
               ref={setLinkRef(1)}
               data-active={isLinkActive(ROUTES.ABOUT) ? "true" : ""}
               className={`text-sm font-semibold tracking-wide px-3 py-1.5 rounded-full transition-all duration-350 ${isLinkActive(ROUTES.ABOUT) ? 'text-gold-400 bg-gold-400/10' : 'text-white hover:text-gold-400'
@@ -200,6 +206,7 @@ function Navbar() {
 
             <Link
               to={ROUTES.PRODUCTS}
+              target="_blank"
               ref={setLinkRef(3)}
               data-active={isLinkActive(ROUTES.PRODUCTS) ? "true" : ""}
               className={`text-sm font-semibold tracking-wide px-3 py-1.5 rounded-full transition-all duration-350 ${isLinkActive(ROUTES.PRODUCTS) ? 'text-gold-400 bg-gold-400/10' : 'text-white hover:text-gold-400'
@@ -210,6 +217,7 @@ function Navbar() {
 
             <Link
               to={ROUTES.CALCULATORS}
+              target="_blank"
               ref={setLinkRef(4)}
               data-active={isLinkActive(ROUTES.CALCULATORS) ? "true" : ""}
               className={`text-sm font-semibold tracking-wide px-3 py-1.5 rounded-full transition-all duration-350 ${isLinkActive(ROUTES.CALCULATORS) ? 'text-gold-400 bg-gold-400/10' : 'text-white hover:text-gold-400'
@@ -220,6 +228,7 @@ function Navbar() {
 
             <Link
               to={ROUTES.CONTACT}
+              target="_blank"
               ref={setLinkRef(5)}
               data-active={isLinkActive(ROUTES.CONTACT) ? "true" : ""}
               className={`text-sm font-semibold tracking-wide px-3 py-1.5 rounded-full transition-all duration-350 ${isLinkActive(ROUTES.CONTACT) ? 'text-gold-400 bg-gold-400/10' : 'text-white hover:text-gold-400'
@@ -230,12 +239,14 @@ function Navbar() {
           </div>
 
           {/* Desktop Right CTA Button */}
-          <div className="hidden lg:flex items-center">
-            <Link to={ROUTES.CONTACT} className="btn-primary flex items-center gap-2 text-sm px-5 py-2.5">
-              <PhoneCall size={16} />
-              <span>Get in Touch</span>
-            </Link>
-          </div>
+          {location.pathname !== ROUTES.CONTACT && (
+            <div className="hidden lg:flex items-center">
+              <Link to={ROUTES.CONTACT} className="btn-primary flex items-center gap-2 text-sm px-5 py-2.5">
+                <PhoneCall size={16} />
+                <span>Get in Touch</span>
+              </Link>
+            </div>
+          )}
 
           {/* Mobile menu button */}
           <div className="flex lg:hidden">
@@ -268,6 +279,7 @@ function Navbar() {
         <div className="flex flex-col gap-5 overflow-y-auto max-h-[calc(100vh-140px)]">
           <Link
             to={ROUTES.HOME}
+            target="_blank"
             className={`text-base font-semibold py-1.5 transition-colors duration-250 ${isLinkActive(ROUTES.HOME) ? 'text-gold-400 border-l-2 border-gold-400 pl-2' : 'text-white hover:text-gold-400'
               }`}
           >
@@ -276,6 +288,7 @@ function Navbar() {
 
           <Link
             to={ROUTES.ABOUT}
+            target="_blank"
             className={`text-base font-semibold py-1.5 transition-colors duration-250 ${isLinkActive(ROUTES.ABOUT) ? 'text-gold-400 border-l-2 border-gold-400 pl-2' : 'text-white hover:text-gold-400'
               }`}
           >
@@ -300,6 +313,7 @@ function Navbar() {
               <div className="pl-4 mt-2 border-l border-gold-400/20 flex flex-col gap-3">
                 <Link
                   to={ROUTES.SERVICES}
+                  target="_blank"
                   className="text-sm text-gray-300 hover:text-gold-400 py-1 transition-colors duration-250 font-medium"
                 >
                   All Services Overview
@@ -308,6 +322,7 @@ function Navbar() {
                   <Link
                     key={service.id}
                     to={service.href}
+                    target="_blank"
                     className="text-sm text-gray-300 hover:text-gold-400 py-1 transition-colors duration-250"
                   >
                     {service.title}
@@ -319,6 +334,7 @@ function Navbar() {
 
           <Link
             to={ROUTES.PRODUCTS}
+            target="_blank"
             className={`text-base font-semibold py-1.5 transition-colors duration-250 ${isLinkActive(ROUTES.PRODUCTS) ? 'text-gold-400 border-l-2 border-gold-400 pl-2' : 'text-white hover:text-gold-400'
               }`}
           >
@@ -327,6 +343,7 @@ function Navbar() {
 
           <Link
             to={ROUTES.CALCULATORS}
+            target="_blank"
             className={`text-base font-semibold py-1.5 transition-colors duration-250 ${isLinkActive(ROUTES.CALCULATORS) ? 'text-gold-400 border-l-2 border-gold-400 pl-2' : 'text-white hover:text-gold-400'
               }`}
           >
@@ -335,19 +352,22 @@ function Navbar() {
 
           <Link
             to={ROUTES.CONTACT}
+            target="_blank"
             className={`text-base font-semibold py-1.5 transition-colors duration-250 ${isLinkActive(ROUTES.CONTACT) ? 'text-gold-400 border-l-2 border-gold-400 pl-2' : 'text-white hover:text-gold-400'
               }`}
           >
             Contact Us
           </Link>
 
-          <Link
-            to={ROUTES.CONTACT}
-            className="btn-primary flex items-center justify-center gap-2 mt-4 py-3"
-          >
-            <PhoneCall size={18} />
-            <span>Get in Touch</span>
-          </Link>
+          {location.pathname !== ROUTES.CONTACT && (
+            <Link
+              to={ROUTES.CONTACT}
+              className="btn-primary flex items-center justify-center gap-2 mt-4 py-3"
+            >
+              <PhoneCall size={18} />
+              <span>Get in Touch</span>
+            </Link>
+          )}
         </div>
       </div>
 

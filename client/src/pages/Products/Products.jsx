@@ -1,4 +1,4 @@
-﻿import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import * as Icons from 'lucide-react';
 import { PRODUCTS } from '../../constants/products';
 import { ROUTES } from '../../constants/routes';
@@ -91,6 +91,24 @@ const itemVariants = {
 };
 
 function Products() {
+  const location = useLocation();
+
+  useEffect(() => {
+    if (location.hash) {
+      const id = location.hash.replace('#', '');
+      const element = document.getElementById(id);
+      if (element) {
+        setTimeout(() => {
+          const yOffset = -100; // Account for fixed navbar
+          const y = element.getBoundingClientRect().top + window.scrollY + yOffset;
+          window.scrollTo({ top: y, behavior: 'smooth' });
+        }, 100);
+      }
+    } else {
+      window.scrollTo(0, 0);
+    }
+  }, [location]);
+
   return (
     <div className="bg-white pb-24">
       {/* 1. Hero Section */}
@@ -160,7 +178,7 @@ function Products() {
             const IconComponent = Icons[product.icon] || Icons.Box;
 
             return (
-              <motion.div variants={itemVariants} key={product.id} className="bg-white rounded-xl shadow-sm border border-green-700/10 hover:border-gold-400 hover:shadow-md transition-all duration-300 overflow-hidden flex flex-col p-8 group">
+              <motion.div variants={itemVariants} key={product.id} id={product.id} className="bg-white rounded-xl shadow-sm border border-green-700/10 hover:border-gold-400 hover:shadow-md transition-all duration-300 overflow-hidden flex flex-col p-8 group">
                 
                 {/* Icon & Category */}
                 <div className="flex justify-between items-start mb-6">

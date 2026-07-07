@@ -74,7 +74,7 @@ function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
           {/* Column 1: Brand & About */}
           <div className="flex flex-col gap-6">
-            <Link to={ROUTES.HOME} className="flex items-center gap-3 group self-start">
+            <Link to={ROUTES.HOME} onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="flex items-center gap-3 group self-start">
               <img 
                 src="/logo_mark.png" 
                 alt="Aadi Investors Logo" 
@@ -131,6 +131,7 @@ function Footer() {
                 <li key={idx}>
                   <Link
                     to={link.path}
+                    onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
                     className="text-gray-300 hover:text-gold-400 text-sm flex items-center gap-1.5 transition-colors duration-200 group"
                   >
                     <ArrowRight size={12} className="text-gold-400 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-200" />
@@ -151,6 +152,7 @@ function Footer() {
                 <li key={service.id}>
                   <Link
                     to={service.href}
+                    onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
                     className="text-gray-300 hover:text-gold-400 text-sm flex items-center gap-1.5 transition-colors duration-200 group"
                   >
                     <ArrowRight size={12} className="text-gold-400 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-200" />
