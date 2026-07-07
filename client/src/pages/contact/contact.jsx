@@ -318,7 +318,7 @@ function Contact() {
               {/* Social Media */}
               <motion.div variants={itemVariants} className="bg-green-100/30 p-6 rounded-xl hover:shadow-md transition-all duration-300">
                 <h3 className="font-bold text-green-950 mb-4">Follow Us</h3>
-                <div className="flex items-center gap-3 flex-wrap">
+                <div className="flex items-center gap-2 sm:gap-3 lg:gap-1.5 xl:gap-3 flex-wrap">
                   {[
                     { label: 'LinkedIn', href: 'https://www.linkedin.com/in/netra-shah-ns1009', color: 'hover:bg-[#0077B5] hover:text-white hover:border-[#0077B5]', icon: <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" /><rect x="2" y="9" width="4" height="12" /><circle cx="4" cy="4" r="2" /></svg> },
                     { label: 'Facebook', href: 'https://www.facebook.com/share/1Fn5DoTZpg/?mibextid=wwXIfr', color: 'hover:bg-[#1877F2] hover:text-white hover:border-[#1877F2]', icon: <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" /></svg> },
@@ -338,7 +338,7 @@ function Contact() {
                       transition={{ delay: i * 0.08, duration: 0.35, type: 'spring' }}
                       whileHover={{ scale: 1.2, y: -3 }}
                       whileTap={{ scale: 0.9 }}
-                      className={`h-10 w-10 rounded-full bg-white border border-green-200 flex items-center justify-center text-gold-600 transition-all duration-300 shadow-sm ${s.color}`}
+                      className={`h-9 w-9 sm:h-10 sm:w-10 lg:h-8 lg:w-8 xl:h-10 xl:w-10 rounded-full bg-white border border-green-200 flex items-center justify-center text-gold-600 transition-all duration-300 shadow-sm ${s.color}`}
                     >
                       {s.icon}
                     </motion.a>

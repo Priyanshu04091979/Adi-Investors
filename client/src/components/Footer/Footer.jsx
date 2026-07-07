@@ -93,7 +93,7 @@ function Footer() {
               Aadi Investments is a premier financial advisory firm dedicated to guiding clients through wealth generation, strategic investments, and reliable insurance planning.
             </p>
             {/* Social Icons with Animations */}
-            <div className="flex items-center gap-3 flex-wrap">
+            <div className="flex items-center gap-2 sm:gap-3 lg:gap-1.5 xl:gap-3 flex-wrap">
               {SOCIAL_LINKS.map((social, i) => (
                 <motion.a
                   key={social.label}
@@ -107,7 +107,7 @@ function Footer() {
                   transition={{ delay: i * 0.08, duration: 0.4 }}
                   whileHover={{ scale: 1.15, y: -2 }}
                   whileTap={{ scale: 0.95 }}
-                  className={`h-10 w-10 rounded-full bg-green-700/20 border border-gold-400/15 flex items-center justify-center text-gold-400 hover:text-white transition-all duration-300 ${social.color}`}
+                  className={`h-9 w-9 sm:h-10 sm:w-10 lg:h-8 lg:w-8 xl:h-10 xl:w-10 rounded-full bg-green-700/20 border border-gold-400/15 flex items-center justify-center text-gold-400 hover:text-white transition-all duration-300 ${social.color}`}
                 >
                   {social.icon}
                 </motion.a>
